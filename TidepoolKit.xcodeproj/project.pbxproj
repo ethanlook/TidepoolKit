@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AACFD76C1D57F10500E212CF /* TidepoolKit.h in Headers */ = {isa = PBXBuildFile; fileRef = AACFD76B1D57F10500E212CF /* TidepoolKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AACFD7731D57F10500E212CF /* TidepoolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACFD7681D57F10500E212CF /* TidepoolKit.framework */; };
+		AACFD7781D57F10500E212CF /* TidepoolKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACFD7771D57F10500E212CF /* TidepoolKitTests.swift */; };
+		AACFD7861D58007900E212CF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACFD7851D58007900E212CF /* Api.swift */; };
+		AACFD7871D58114400E212CF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACFD7851D58007900E212CF /* Api.swift */; };
+		AACFD78C1D5819CF00E212CF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACFD78B1D5819CF00E212CF /* Data.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AACFD7741D57F10500E212CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AACFD75F1D57F10500E212CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AACFD7671D57F10500E212CF;
+			remoteInfo = TidepoolKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AACFD7681D57F10500E212CF /* TidepoolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TidepoolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AACFD76B1D57F10500E212CF /* TidepoolKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TidepoolKit.h; sourceTree = "<group>"; };
+		AACFD76D1D57F10500E212CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AACFD7721D57F10500E212CF /* TidepoolKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TidepoolKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AACFD7771D57F10500E212CF /* TidepoolKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidepoolKitTests.swift; sourceTree = "<group>"; };
+		AACFD7791D57F10500E212CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AACFD7851D58007900E212CF /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		AACFD78B1D5819CF00E212CF /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AACFD7641D57F10500E212CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AACFD76F1D57F10500E212CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACFD7731D57F10500E212CF /* TidepoolKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AACFD75E1D57F10500E212CF = {
+			isa = PBXGroup;
+			children = (
+				AACFD76A1D57F10500E212CF /* TidepoolKit */,
+				AACFD7761D57F10500E212CF /* TidepoolKitTests */,
+				AACFD7691D57F10500E212CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AACFD7691D57F10500E212CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AACFD7681D57F10500E212CF /* TidepoolKit.framework */,
+				AACFD7721D57F10500E212CF /* TidepoolKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AACFD76A1D57F10500E212CF /* TidepoolKit */ = {
+			isa = PBXGroup;
+			children = (
+				AACFD76B1D57F10500E212CF /* TidepoolKit.h */,
+				AACFD76D1D57F10500E212CF /* Info.plist */,
+				AACFD7851D58007900E212CF /* Api.swift */,
+				AACFD7841D57F31200E212CF /* TidepoolData */,
+			);
+			path = TidepoolKit;
+			sourceTree = "<group>";
+		};
+		AACFD7761D57F10500E212CF /* TidepoolKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				AACFD7771D57F10500E212CF /* TidepoolKitTests.swift */,
+				AACFD7791D57F10500E212CF /* Info.plist */,
+			);
+			path = TidepoolKitTests;
+			sourceTree = "<group>";
+		};
+		AACFD7841D57F31200E212CF /* TidepoolData */ = {
+			isa = PBXGroup;
+			children = (
+				AACFD78B1D5819CF00E212CF /* Data.swift */,
+			);
+			path = TidepoolData;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AACFD7651D57F10500E212CF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACFD76C1D57F10500E212CF /* TidepoolKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		AACFD7671D57F10500E212CF /* TidepoolKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AACFD77C1D57F10500E212CF /* Build configuration list for PBXNativeTarget "TidepoolKit" */;
+			buildPhases = (
+				AACFD7631D57F10500E212CF /* Sources */,
+				AACFD7641D57F10500E212CF /* Frameworks */,
+				AACFD7651D57F10500E212CF /* Headers */,
+				AACFD7661D57F10500E212CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TidepoolKit;
+			productName = TidepoolKit;
+			productReference = AACFD7681D57F10500E212CF /* TidepoolKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AACFD7711D57F10500E212CF /* TidepoolKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AACFD77F1D57F10500E212CF /* Build configuration list for PBXNativeTarget "TidepoolKitTests" */;
+			buildPhases = (
+				AACFD76E1D57F10500E212CF /* Sources */,
+				AACFD76F1D57F10500E212CF /* Frameworks */,
+				AACFD7701D57F10500E212CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AACFD7751D57F10500E212CF /* PBXTargetDependency */,
+			);
+			name = TidepoolKitTests;
+			productName = TidepoolKitTests;
+			productReference = AACFD7721D57F10500E212CF /* TidepoolKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AACFD75F1D57F10500E212CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Ethan Look";
+				TargetAttributes = {
+					AACFD7671D57F10500E212CF = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					AACFD7711D57F10500E212CF = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = AACFD7621D57F10500E212CF /* Build configuration list for PBXProject "TidepoolKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AACFD75E1D57F10500E212CF;
+			productRefGroup = AACFD7691D57F10500E212CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AACFD7671D57F10500E212CF /* TidepoolKit */,
+				AACFD7711D57F10500E212CF /* TidepoolKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AACFD7661D57F10500E212CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AACFD7701D57F10500E212CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AACFD7631D57F10500E212CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACFD7861D58007900E212CF /* Api.swift in Sources */,
+				AACFD78C1D5819CF00E212CF /* Data.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AACFD76E1D57F10500E212CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACFD7871D58114400E212CF /* Api.swift in Sources */,
+				AACFD7781D57F10500E212CF /* TidepoolKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AACFD7751D57F10500E212CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AACFD7671D57F10500E212CF /* TidepoolKit */;
+			targetProxy = AACFD7741D57F10500E212CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AACFD77A1D57F10500E212CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AACFD77B1D57F10500E212CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AACFD77D1D57F10500E212CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TidepoolKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lookfamily.ethan.TidepoolKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AACFD77E1D57F10500E212CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TidepoolKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lookfamily.ethan.TidepoolKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		AACFD7801D57F10500E212CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TidepoolKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lookfamily.ethan.TidepoolKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AACFD7811D57F10500E212CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TidepoolKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lookfamily.ethan.TidepoolKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AACFD7621D57F10500E212CF /* Build configuration list for PBXProject "TidepoolKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AACFD77A1D57F10500E212CF /* Debug */,
+				AACFD77B1D57F10500E212CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AACFD77C1D57F10500E212CF /* Build configuration list for PBXNativeTarget "TidepoolKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AACFD77D1D57F10500E212CF /* Debug */,
+				AACFD77E1D57F10500E212CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AACFD77F1D57F10500E212CF /* Build configuration list for PBXNativeTarget "TidepoolKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AACFD7801D57F10500E212CF /* Debug */,
+				AACFD7811D57F10500E212CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AACFD75F1D57F10500E212CF /* Project object */;
+}
