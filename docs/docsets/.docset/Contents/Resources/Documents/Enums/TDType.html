@@ -14,7 +14,7 @@
     <a title="TDType Enum Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (0% documented)</p>
+        <p><a href="../index.html"> Docs</a> (16% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -142,7 +142,13 @@
         <section>
           <section class="section">
             <h1>TDType</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TDType</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                </div>
+              </div>
+            <p>A Tidepool data type, and the associated string raw value.</p>
 
           </section>
           <section class="section task-group-section">
@@ -161,8 +167,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Self-monitored blood glucose, as measured with a fingerstick blood-glucose meter.</p>
 
+<p>Raw value: <code>smbg</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">SMBG</span> <span class="o">=</span> <span class="s">"smbg"</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -184,8 +200,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Continuous blood glucose, as measured with a continuous blood-glucose monitor.</p>
 
+<p>Raw value: <code>cbg</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">CBG</span> <span class="o">=</span> <span class="s">"cbg"</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -207,8 +233,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Blood ketone concentration, as measured by a fingerstick meter with blood ketone testing capabilities.</p>
 
+<p>Raw value: <code>bloodKetone</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">BloodKetone</span> <span class="o">=</span> <span class="s">"bloodKetone"</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -230,8 +266,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A one-time dose of fast-acting insulin, as administered by an insulin pump.</p>
 
+<p>Raw value: <code>bolus</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Bolus</span> <span class="o">=</span> <span class="s">"bolus"</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -253,8 +299,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A <q>slow drip</q> of insulin, as administered by an insulin pump.</p>
 
+<p>Raw value: <code>basal</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Basal</span> <span class="o">=</span> <span class="s">"basal"</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -276,8 +332,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A bolus event with associated <q>wizard</q> or <q>calculator</q> recommendations, as administered by an insulin pump.</p>
 
+<p>Raw value: currently <code>wizard</code>, but to be renamed <code>calculator</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Wizard</span> <span class="o">=</span> <span class="s">"wizard"</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -299,8 +365,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The settings associated with a continuous blood-glucose monitor.</p>
 
+<p>Raw value: <code>cgmSettings</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">CGMSettings</span> <span class="o">=</span> <span class="s">"cgmSettings"</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -322,8 +398,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The settings associated with an insulin pump.</p>
 
+<p>Raw value: <code>pumpSettings</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">PumpSettings</span> <span class="o">=</span> <span class="s">"pumpSettings"</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
