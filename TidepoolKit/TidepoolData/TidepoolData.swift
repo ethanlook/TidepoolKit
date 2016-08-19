@@ -1,5 +1,5 @@
 //
-//  TDCommonData.swift
+//  TidepoolData.swift
 //  TidepoolKit
 //
 //  Created by Ethan Look on 8/7/16.
@@ -13,18 +13,10 @@ import Foundation
 public enum TDUnit {
     /// Options for blood glucose values.
     public enum BG: String {
-        /**
-         Milligrams per deciliter.
-         
-         Raw value: `mg/dL`
-         */
+        /// Milligrams per deciliter.
         case MGDL = "mg/dL"
         
-        /**
-         Millimoles per liter.
-         
-         Raw value: `mmol/L`
-         */
+        /// Millimoles per liter.
         case MMOLL = "mmol/L"
     }
     
@@ -37,60 +29,28 @@ public enum TDUnit {
 
 /// A Tidepool data type, and the associated string raw value.
 public enum TDType: String {
-    /**
-     Self-monitored blood glucose, as measured with a fingerstick blood-glucose meter.
-     
-     Raw value: `smbg`
-     */
+    /// Self-monitored blood glucose, as measured with a fingerstick blood-glucose meter.
     case SMBG = "smbg"
     
-    /**
-     Continuous blood glucose, as measured with a continuous blood-glucose monitor.
-     
-     Raw value: `cbg`
-     */
+    /// Continuous blood glucose, as measured with a continuous blood-glucose monitor.
     case CBG = "cbg"
     
-    /**
-     Blood ketone concentration, as measured by a fingerstick meter with blood ketone testing capabilities.
-     
-     Raw value: `bloodKetone`
-     */
+    /// Blood ketone concentration, as measured by a fingerstick meter with blood ketone testing capabilities.
     case BloodKetone = "bloodKetone"
     
-    /**
-     A one-time dose of fast-acting insulin, as administered by an insulin pump.
-     
-     Raw value: `bolus`
-     */
+    /// A one-time dose of fast-acting insulin, as administered by an insulin pump.
     case Bolus = "bolus"
     
-    /**
-     A "slow drip" of insulin, as administered by an insulin pump.
-     
-     Raw value: `basal`
-     */
+    /// A "slow drip" of insulin, as administered by an insulin pump.
     case Basal = "basal"
     
-    /**
-     A bolus event with associated "wizard" or "calculator" recommendations, as administered by an insulin pump.
-    
-     Raw value: currently `wizard`, but to be renamed `calculator`.
-     */
+    /// A bolus event with associated "wizard" or "calculator" recommendations, as administered by an insulin pump.
     case Wizard = "wizard"
     
-    /**
-     The settings associated with a continuous blood-glucose monitor.
-     
-     Raw value: `cgmSettings`
-     */
+    /// The settings associated with a continuous blood-glucose monitor.
     case CGMSettings = "cgmSettings"
     
-    /**
-     The settings associated with an insulin pump.
-     
-     Raw value: `pumpSettings`
-     */
+    /// The settings associated with an insulin pump.
     case PumpSettings = "pumpSettings"
 }
 
@@ -103,7 +63,6 @@ public class TidepoolData {
     internal let timezoneOffset: Int = Datetime.getTimezoneOffset()
     internal var type: TDType
     
-    /// Test: the initializer.
     internal init(type: TDType, subType: String?, time: NSDate?) {
         self.type = type
         self.subType = subType
