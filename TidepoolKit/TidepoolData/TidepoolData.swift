@@ -73,6 +73,15 @@ public class TidepoolData {
         }
     }
     
+    /**
+     Returns a dictionary representation of the `TidepoolData` object.
+     
+     - Note: This method is not intended to be called by a client, hence its `internal` designation. In addition, because an instance of this class cannot be created, this method simply returns an empty dictionary. Subclasses of `TidepoolData` are expected to override the function.
+     
+     - Parameter uploadId: The associated `uploadId` to be included in the dictionary.
+     - Parameter deviceId: The associated `deviceId` to be included in the dictionary.
+     - Returns: A dictionary representation of the `TDSmbg` object.
+     */
     internal func toDictionary(uploadId: String, deviceId: String) -> [String : AnyObject] {
         return [:]
     }
