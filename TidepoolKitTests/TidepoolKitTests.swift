@@ -11,7 +11,7 @@ import XCTest
 
 class TidepoolKitTests: XCTestCase {
     
-    var api: Api = Api()
+    var tidepoolApi: TidepoolApiClient = TidepoolApiClient()
     
     let username = ""
     let password = ""
@@ -20,16 +20,12 @@ class TidepoolKitTests: XCTestCase {
         super.setUp()
         let expectation = expectationWithDescription("Login")
 
-        self.api.login(self.username, password: self.password) { (response, data, error) in
-            if let httpResponse = response as? NSHTTPURLResponse {
-                XCTAssert(httpResponse.statusCode == 200)
-            } else {
-                XCTFail()
-            }
+        self.tidepoolApi.login(self.username, password: self.password) { (success, error) in
+            XCTAssertTrue(success)
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(20) { error in
+        waitForExpectationsWithTimeout(10) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             }
@@ -39,24 +35,72 @@ class TidepoolKitTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
-    }
-    
-    func testLogout() {
+        
         let expectation = expectationWithDescription("Logout")
-        self.api.login(self.username, password: self.password) { (response, data, error) in
-            if let httpResponse = response as? NSHTTPURLResponse {
-                XCTAssert(httpResponse.statusCode == 200)
-            } else {
-                XCTFail()
-            }
+        
+        self.tidepoolApi.logout() { (success, error) in
+            XCTAssertTrue(success)
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(20) { error in
+        waitForExpectationsWithTimeout(10) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             }
         }
     }
     
+    func testUpload() {
+        let data = TDSet()
+                          .add(TDSmbg(units: .MGDL, value: 101, time: Datetime.dateForString("2016-08-21T06:30:00")))
+                          .add(TDCbg(units: .MGDL, value: 333, time: Datetime.dateForString("2016-08-21T06:40:00")))
+                          .add(TDBloodKetone(value: 222, time: Datetime.dateForString("2016-08-21T07:30:00")))
+                          .add(TDBolus(normal: 10.5, expectedNormal: 13, time: Datetime.dateForString("2016-08-21T07:00:00")))
+                          .add(TDBasal(deliveryType: .Temp, duration: 1800000, rate: 1.5, time: Datetime.dateForString("2016-08-21T09:00:00")))
+                          .add(TDBasal(deliveryType: .Temp, duration: 1800000, rate: 0.75, time: Datetime.dateForString("2016-08-21T09:30:00")))
+        
+        
+        let expectation = expectationWithDescription("Upload")
+        self.tidepoolApi.uploadData(data) { (success, error) in
+            XCTAssertTrue(success)
+            expectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(10) { error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func testUploadPumpSettings() {
+        
+        let units = TDPumpSettings.Units(carbs: .Grams, bg: .MGDL)
+        
+        let standard = TDPumpSettings.BasalSchedule(segments: [TDPumpSettings.BasalSchedule.Segment(start: 0, rate: 1.0), TDPumpSettings.BasalSchedule.Segment(start: 43200000, rate: 1.5)])
+        let exercise = TDPumpSettings.BasalSchedule(segments: [TDPumpSettings.BasalSchedule.Segment(start: 0, rate: 2.0), TDPumpSettings.BasalSchedule.Segment(start: 43200000, rate: 3.5)])
+        let basalSchedules = TDPumpSettings.BasalSchedules(schedules: ["Standard" : standard, "Exercise" : exercise])
+        
+        let bgTarget = TDPumpSettings.BGTarget(segments: [TDPumpSettings.BGTarget.Segment(start: 0, low: 100, high: 200)])
+        
+        let carbRatio = TDPumpSettings.CarbRatio(segments: [TDPumpSettings.CarbRatio.Segment(start: 0, amount: 12)])
+        
+        let insulinSensitivity = TDPumpSettings.InsulinSensitivity(segments: [TDPumpSettings.InsulinSensitivity.Segment(start: 0, amount: 60)])
+        
+        let pumpSettings = TDPumpSettings(units: units, activeSchedule: "Exercise", basalSchedules: basalSchedules, bgTarget: bgTarget, carbRatio: carbRatio, insulinSensitivity: insulinSensitivity, time: Datetime.dateForString("2016-08-21T06:30:00"))
+        
+        let data = TDSet().add(pumpSettings)
+        
+        let expectation = expectationWithDescription("Upload Pump Settings")
+        self.tidepoolApi.uploadData(data) { (success, error) in
+            XCTAssertTrue(success)
+            expectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(10) { error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
 }

@@ -7,12 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA1F776D1D662B4600931A0D /* TDCGMSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F776C1D662B4600931A0D /* TDCGMSettings.swift */; };
+		AA1F776E1D662B4600931A0D /* TDCGMSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F776C1D662B4600931A0D /* TDCGMSettings.swift */; };
+		AA1F77701D6636AC00931A0D /* TDPumpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F776F1D6636AC00931A0D /* TDPumpSettings.swift */; };
+		AA1F77711D6636AC00931A0D /* TDPumpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F776F1D6636AC00931A0D /* TDPumpSettings.swift */; };
+		AABC67641D62A9DD00BF2442 /* Datetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67631D62A9DD00BF2442 /* Datetime.swift */; };
+		AABC67651D62AAEF00BF2442 /* Datetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67631D62A9DD00BF2442 /* Datetime.swift */; };
+		AABC67801D62E2A400BF2442 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AABC677F1D62E2A400BF2442 /* CryptoSwift.framework */; };
+		AABC67841D63790400BF2442 /* TDSmbg.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67811D63790400BF2442 /* TDSmbg.swift */; };
+		AABC67851D63790400BF2442 /* TDSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67821D63790400BF2442 /* TDSet.swift */; };
+		AABC67861D63790400BF2442 /* TidepoolData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67831D63790400BF2442 /* TidepoolData.swift */; };
+		AABC678A1D637BC000BF2442 /* TDCbg.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67871D637AE300BF2442 /* TDCbg.swift */; };
+		AABC678B1D637BC100BF2442 /* TDCbg.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67871D637AE300BF2442 /* TDCbg.swift */; };
+		AABC678C1D637C8300BF2442 /* TidepoolData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67831D63790400BF2442 /* TidepoolData.swift */; };
+		AABC678D1D637C8600BF2442 /* TDSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67821D63790400BF2442 /* TDSet.swift */; };
+		AABC678E1D637C8900BF2442 /* TDSmbg.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67811D63790400BF2442 /* TDSmbg.swift */; };
+		AABC67901D637D7B00BF2442 /* TDBloodKetone.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC678F1D637D7B00BF2442 /* TDBloodKetone.swift */; };
+		AABC67911D637E3100BF2442 /* TDBloodKetone.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC678F1D637D7B00BF2442 /* TDBloodKetone.swift */; };
+		AABC67931D637EE100BF2442 /* TDBolus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67921D637EE100BF2442 /* TDBolus.swift */; };
+		AABC67941D637EE400BF2442 /* TDBolus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67921D637EE100BF2442 /* TDBolus.swift */; };
+		AABC67961D63AD6400BF2442 /* TDBasal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67951D63AD6400BF2442 /* TDBasal.swift */; };
+		AABC67971D63AD6400BF2442 /* TDBasal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67951D63AD6400BF2442 /* TDBasal.swift */; };
+		AABC67AD1D64DE9A00BF2442 /* TDWizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67AC1D64DE9A00BF2442 /* TDWizard.swift */; };
+		AABC67AE1D64DE9A00BF2442 /* TDWizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67AC1D64DE9A00BF2442 /* TDWizard.swift */; };
 		AACFD76C1D57F10500E212CF /* TidepoolKit.h in Headers */ = {isa = PBXBuildFile; fileRef = AACFD76B1D57F10500E212CF /* TidepoolKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AACFD7731D57F10500E212CF /* TidepoolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACFD7681D57F10500E212CF /* TidepoolKit.framework */; };
 		AACFD7781D57F10500E212CF /* TidepoolKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACFD7771D57F10500E212CF /* TidepoolKitTests.swift */; };
-		AACFD7861D58007900E212CF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACFD7851D58007900E212CF /* Api.swift */; };
-		AACFD7871D58114400E212CF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACFD7851D58007900E212CF /* Api.swift */; };
-		AACFD78C1D5819CF00E212CF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACFD78B1D5819CF00E212CF /* Data.swift */; };
+		AACFD7CB1D58E33700E212CF /* TidepoolApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACFD7851D58007900E212CF /* TidepoolApiClient.swift */; };
+		AACFD7CC1D58E33800E212CF /* TidepoolApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACFD7851D58007900E212CF /* TidepoolApiClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,14 +48,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA1F776C1D662B4600931A0D /* TDCGMSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCGMSettings.swift; sourceTree = "<group>"; };
+		AA1F776F1D6636AC00931A0D /* TDPumpSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDPumpSettings.swift; sourceTree = "<group>"; };
+		AABC67631D62A9DD00BF2442 /* Datetime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Datetime.swift; path = TidepoolKit/Datetime.swift; sourceTree = SOURCE_ROOT; };
+		AABC677F1D62E2A400BF2442 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/TidepoolKit-cybphccbcdualialhoxddtulvoyd/Build/Products/Debug-iphoneos/CryptoSwift.framework"; sourceTree = "<group>"; };
+		AABC67811D63790400BF2442 /* TDSmbg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDSmbg.swift; sourceTree = "<group>"; };
+		AABC67821D63790400BF2442 /* TDSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDSet.swift; sourceTree = "<group>"; };
+		AABC67831D63790400BF2442 /* TidepoolData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidepoolData.swift; sourceTree = "<group>"; };
+		AABC67871D637AE300BF2442 /* TDCbg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCbg.swift; sourceTree = "<group>"; };
+		AABC678F1D637D7B00BF2442 /* TDBloodKetone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDBloodKetone.swift; sourceTree = "<group>"; };
+		AABC67921D637EE100BF2442 /* TDBolus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDBolus.swift; sourceTree = "<group>"; };
+		AABC67951D63AD6400BF2442 /* TDBasal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDBasal.swift; sourceTree = "<group>"; };
+		AABC67AC1D64DE9A00BF2442 /* TDWizard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDWizard.swift; sourceTree = "<group>"; };
 		AACFD7681D57F10500E212CF /* TidepoolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TidepoolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACFD76B1D57F10500E212CF /* TidepoolKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TidepoolKit.h; sourceTree = "<group>"; };
 		AACFD76D1D57F10500E212CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AACFD7721D57F10500E212CF /* TidepoolKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TidepoolKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACFD7771D57F10500E212CF /* TidepoolKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidepoolKitTests.swift; sourceTree = "<group>"; };
 		AACFD7791D57F10500E212CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AACFD7851D58007900E212CF /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
-		AACFD78B1D5819CF00E212CF /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		AACFD7851D58007900E212CF /* TidepoolApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidepoolApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AABC67801D62E2A400BF2442 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,9 +89,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AABC679D1D64099D00BF2442 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AABC677F1D62E2A400BF2442 /* CryptoSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AACFD75E1D57F10500E212CF = {
 			isa = PBXGroup;
 			children = (
+				AABC679D1D64099D00BF2442 /* Frameworks */,
 				AACFD76A1D57F10500E212CF /* TidepoolKit */,
 				AACFD7761D57F10500E212CF /* TidepoolKitTests */,
 				AACFD7691D57F10500E212CF /* Products */,
@@ -78,7 +121,8 @@
 			children = (
 				AACFD76B1D57F10500E212CF /* TidepoolKit.h */,
 				AACFD76D1D57F10500E212CF /* Info.plist */,
-				AACFD7851D58007900E212CF /* Api.swift */,
+				AACFD7851D58007900E212CF /* TidepoolApiClient.swift */,
+				AABC67631D62A9DD00BF2442 /* Datetime.swift */,
 				AACFD7841D57F31200E212CF /* TidepoolData */,
 			);
 			path = TidepoolKit;
@@ -96,7 +140,16 @@
 		AACFD7841D57F31200E212CF /* TidepoolData */ = {
 			isa = PBXGroup;
 			children = (
-				AACFD78B1D5819CF00E212CF /* Data.swift */,
+				AABC67811D63790400BF2442 /* TDSmbg.swift */,
+				AABC67821D63790400BF2442 /* TDSet.swift */,
+				AABC67831D63790400BF2442 /* TidepoolData.swift */,
+				AA1F776C1D662B4600931A0D /* TDCGMSettings.swift */,
+				AABC67871D637AE300BF2442 /* TDCbg.swift */,
+				AABC678F1D637D7B00BF2442 /* TDBloodKetone.swift */,
+				AABC67921D637EE100BF2442 /* TDBolus.swift */,
+				AABC67951D63AD6400BF2442 /* TDBasal.swift */,
+				AABC67AC1D64DE9A00BF2442 /* TDWizard.swift */,
+				AA1F776F1D6636AC00931A0D /* TDPumpSettings.swift */,
 			);
 			path = TidepoolData;
 			sourceTree = "<group>";
@@ -209,8 +262,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AACFD7861D58007900E212CF /* Api.swift in Sources */,
-				AACFD78C1D5819CF00E212CF /* Data.swift in Sources */,
+				AA1F77701D6636AC00931A0D /* TDPumpSettings.swift in Sources */,
+				AABC67641D62A9DD00BF2442 /* Datetime.swift in Sources */,
+				AABC67961D63AD6400BF2442 /* TDBasal.swift in Sources */,
+				AABC67861D63790400BF2442 /* TidepoolData.swift in Sources */,
+				AACFD7CC1D58E33800E212CF /* TidepoolApiClient.swift in Sources */,
+				AABC67901D637D7B00BF2442 /* TDBloodKetone.swift in Sources */,
+				AABC67851D63790400BF2442 /* TDSet.swift in Sources */,
+				AA1F776D1D662B4600931A0D /* TDCGMSettings.swift in Sources */,
+				AABC67931D637EE100BF2442 /* TDBolus.swift in Sources */,
+				AABC67AD1D64DE9A00BF2442 /* TDWizard.swift in Sources */,
+				AABC678A1D637BC000BF2442 /* TDCbg.swift in Sources */,
+				AABC67841D63790400BF2442 /* TDSmbg.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,8 +281,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AACFD7871D58114400E212CF /* Api.swift in Sources */,
+				AABC67941D637EE400BF2442 /* TDBolus.swift in Sources */,
+				AACFD7CB1D58E33700E212CF /* TidepoolApiClient.swift in Sources */,
+				AABC678C1D637C8300BF2442 /* TidepoolData.swift in Sources */,
+				AABC678D1D637C8600BF2442 /* TDSet.swift in Sources */,
+				AA1F776E1D662B4600931A0D /* TDCGMSettings.swift in Sources */,
 				AACFD7781D57F10500E212CF /* TidepoolKitTests.swift in Sources */,
+				AABC67AE1D64DE9A00BF2442 /* TDWizard.swift in Sources */,
+				AA1F77711D6636AC00931A0D /* TDPumpSettings.swift in Sources */,
+				AABC67971D63AD6400BF2442 /* TDBasal.swift in Sources */,
+				AABC67911D637E3100BF2442 /* TDBloodKetone.swift in Sources */,
+				AABC678E1D637C8900BF2442 /* TDSmbg.swift in Sources */,
+				AABC678B1D637BC100BF2442 /* TDCbg.swift in Sources */,
+				AABC67651D62AAEF00BF2442 /* Datetime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,12 +407,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = TidepoolKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.lookfamily.ethan.TidepoolKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -351,12 +427,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = TidepoolKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.lookfamily.ethan.TidepoolKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
