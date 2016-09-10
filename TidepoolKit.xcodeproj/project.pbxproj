@@ -7,11 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA1F776D1D662B4600931A0D /* TDCGMSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F776C1D662B4600931A0D /* TDCGMSettings.swift */; };
-		AA1F776E1D662B4600931A0D /* TDCGMSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F776C1D662B4600931A0D /* TDCGMSettings.swift */; };
+		AA13027C1D6AAEBE0078A06D /* TDSmbgSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA13027B1D6AAEBE0078A06D /* TDSmbgSet.swift */; };
+		AA13027D1D6AAEBE0078A06D /* TDSmbgSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA13027B1D6AAEBE0078A06D /* TDSmbgSet.swift */; };
+		AA13027F1D6AB1D00078A06D /* TDCbgSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA13027E1D6AB1D00078A06D /* TDCbgSet.swift */; };
+		AA1302801D6AB1D00078A06D /* TDCbgSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA13027E1D6AB1D00078A06D /* TDCbgSet.swift */; };
+		AA1302821D6AB2BD0078A06D /* TDBloodKetoneSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1302811D6AB2BD0078A06D /* TDBloodKetoneSet.swift */; };
+		AA1302831D6AB2BD0078A06D /* TDBloodKetoneSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1302811D6AB2BD0078A06D /* TDBloodKetoneSet.swift */; };
+		AA1302851D6AB43C0078A06D /* TDBasalSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1302841D6AB43C0078A06D /* TDBasalSet.swift */; };
+		AA1302861D6AB43C0078A06D /* TDBasalSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1302841D6AB43C0078A06D /* TDBasalSet.swift */; };
+		AA1302881D6AB57B0078A06D /* TDBolusSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1302871D6AB57B0078A06D /* TDBolusSet.swift */; };
+		AA1302891D6AB57B0078A06D /* TDBolusSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1302871D6AB57B0078A06D /* TDBolusSet.swift */; };
+		AA13028B1D6AB6100078A06D /* TDCgmSettingsSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA13028A1D6AB6100078A06D /* TDCgmSettingsSet.swift */; };
+		AA13028C1D6AB6100078A06D /* TDCgmSettingsSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA13028A1D6AB6100078A06D /* TDCgmSettingsSet.swift */; };
+		AA13028E1D6AB7690078A06D /* TDPumpSettingsSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA13028D1D6AB7690078A06D /* TDPumpSettingsSet.swift */; };
+		AA13028F1D6AB7690078A06D /* TDPumpSettingsSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA13028D1D6AB7690078A06D /* TDPumpSettingsSet.swift */; };
+		AA1302911D6AB7E30078A06D /* TDWizardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1302901D6AB7E30078A06D /* TDWizardSet.swift */; };
+		AA1302921D6AB7E30078A06D /* TDWizardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1302901D6AB7E30078A06D /* TDWizardSet.swift */; };
+		AA1F776D1D662B4600931A0D /* TDCgmSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F776C1D662B4600931A0D /* TDCgmSettings.swift */; };
+		AA1F776E1D662B4600931A0D /* TDCgmSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F776C1D662B4600931A0D /* TDCgmSettings.swift */; };
 		AA1F77701D6636AC00931A0D /* TDPumpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F776F1D6636AC00931A0D /* TDPumpSettings.swift */; };
 		AA1F77711D6636AC00931A0D /* TDPumpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F776F1D6636AC00931A0D /* TDPumpSettings.swift */; };
 		AA1F77731D67ADE600931A0D /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1F77721D67ADE600931A0D /* CryptoSwift.framework */; };
+		AA1F77751D67C98E00931A0D /* TDUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F77741D67C98E00931A0D /* TDUpload.swift */; };
+		AA1F77761D67C98E00931A0D /* TDUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F77741D67C98E00931A0D /* TDUpload.swift */; };
 		AABC67641D62A9DD00BF2442 /* Datetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67631D62A9DD00BF2442 /* Datetime.swift */; };
 		AABC67651D62AAEF00BF2442 /* Datetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67631D62A9DD00BF2442 /* Datetime.swift */; };
 		AABC67841D63790400BF2442 /* TDSmbg.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC67811D63790400BF2442 /* TDSmbg.swift */; };
@@ -48,9 +66,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AA1F776C1D662B4600931A0D /* TDCGMSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCGMSettings.swift; sourceTree = "<group>"; };
+		AA13027B1D6AAEBE0078A06D /* TDSmbgSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDSmbgSet.swift; sourceTree = "<group>"; };
+		AA13027E1D6AB1D00078A06D /* TDCbgSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCbgSet.swift; sourceTree = "<group>"; };
+		AA1302811D6AB2BD0078A06D /* TDBloodKetoneSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDBloodKetoneSet.swift; sourceTree = "<group>"; };
+		AA1302841D6AB43C0078A06D /* TDBasalSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDBasalSet.swift; sourceTree = "<group>"; };
+		AA1302871D6AB57B0078A06D /* TDBolusSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDBolusSet.swift; sourceTree = "<group>"; };
+		AA13028A1D6AB6100078A06D /* TDCgmSettingsSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCgmSettingsSet.swift; sourceTree = "<group>"; };
+		AA13028D1D6AB7690078A06D /* TDPumpSettingsSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDPumpSettingsSet.swift; sourceTree = "<group>"; };
+		AA1302901D6AB7E30078A06D /* TDWizardSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDWizardSet.swift; sourceTree = "<group>"; };
+		AA1F776C1D662B4600931A0D /* TDCgmSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCgmSettings.swift; sourceTree = "<group>"; };
 		AA1F776F1D6636AC00931A0D /* TDPumpSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDPumpSettings.swift; sourceTree = "<group>"; };
 		AA1F77721D67ADE600931A0D /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/CryptoSwift-amtlrafleyfevxfoujrusyxhoiwg/Build/Products/Debug-iphonesimulator/CryptoSwift.framework"; sourceTree = "<group>"; };
+		AA1F77741D67C98E00931A0D /* TDUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDUpload.swift; sourceTree = "<group>"; };
 		AABC67631D62A9DD00BF2442 /* Datetime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Datetime.swift; path = TidepoolKit/Datetime.swift; sourceTree = SOURCE_ROOT; };
 		AABC67811D63790400BF2442 /* TDSmbg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDSmbg.swift; sourceTree = "<group>"; };
 		AABC67821D63790400BF2442 /* TDSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDSet.swift; sourceTree = "<group>"; };
@@ -142,8 +169,17 @@
 			children = (
 				AABC67811D63790400BF2442 /* TDSmbg.swift */,
 				AABC67821D63790400BF2442 /* TDSet.swift */,
+				AA13027B1D6AAEBE0078A06D /* TDSmbgSet.swift */,
+				AA13027E1D6AB1D00078A06D /* TDCbgSet.swift */,
+				AA1302811D6AB2BD0078A06D /* TDBloodKetoneSet.swift */,
+				AA1302841D6AB43C0078A06D /* TDBasalSet.swift */,
+				AA1302871D6AB57B0078A06D /* TDBolusSet.swift */,
+				AA13028A1D6AB6100078A06D /* TDCgmSettingsSet.swift */,
+				AA1F77741D67C98E00931A0D /* TDUpload.swift */,
 				AABC67831D63790400BF2442 /* TidepoolData.swift */,
-				AA1F776C1D662B4600931A0D /* TDCGMSettings.swift */,
+				AA1F776C1D662B4600931A0D /* TDCgmSettings.swift */,
+				AA13028D1D6AB7690078A06D /* TDPumpSettingsSet.swift */,
+				AA1302901D6AB7E30078A06D /* TDWizardSet.swift */,
 				AABC67871D637AE300BF2442 /* TDCbg.swift */,
 				AABC678F1D637D7B00BF2442 /* TDBloodKetone.swift */,
 				AABC67921D637EE100BF2442 /* TDBolus.swift */,
@@ -262,15 +298,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA1302911D6AB7E30078A06D /* TDWizardSet.swift in Sources */,
 				AA1F77701D6636AC00931A0D /* TDPumpSettings.swift in Sources */,
+				AA1302851D6AB43C0078A06D /* TDBasalSet.swift in Sources */,
+				AA13027C1D6AAEBE0078A06D /* TDSmbgSet.swift in Sources */,
 				AABC67641D62A9DD00BF2442 /* Datetime.swift in Sources */,
 				AABC67961D63AD6400BF2442 /* TDBasal.swift in Sources */,
+				AA13028E1D6AB7690078A06D /* TDPumpSettingsSet.swift in Sources */,
 				AABC67861D63790400BF2442 /* TidepoolData.swift in Sources */,
 				AACFD7CC1D58E33800E212CF /* TidepoolApiClient.swift in Sources */,
 				AABC67901D637D7B00BF2442 /* TDBloodKetone.swift in Sources */,
+				AA13028B1D6AB6100078A06D /* TDCgmSettingsSet.swift in Sources */,
 				AABC67851D63790400BF2442 /* TDSet.swift in Sources */,
-				AA1F776D1D662B4600931A0D /* TDCGMSettings.swift in Sources */,
+				AA1F77751D67C98E00931A0D /* TDUpload.swift in Sources */,
+				AA13027F1D6AB1D00078A06D /* TDCbgSet.swift in Sources */,
+				AA1F776D1D662B4600931A0D /* TDCgmSettings.swift in Sources */,
+				AA1302821D6AB2BD0078A06D /* TDBloodKetoneSet.swift in Sources */,
 				AABC67931D637EE100BF2442 /* TDBolus.swift in Sources */,
+				AA1302881D6AB57B0078A06D /* TDBolusSet.swift in Sources */,
 				AABC67AD1D64DE9A00BF2442 /* TDWizard.swift in Sources */,
 				AABC678A1D637BC000BF2442 /* TDCbg.swift in Sources */,
 				AABC67841D63790400BF2442 /* TDSmbg.swift in Sources */,
@@ -283,15 +328,24 @@
 			files = (
 				AABC67941D637EE400BF2442 /* TDBolus.swift in Sources */,
 				AACFD7CB1D58E33700E212CF /* TidepoolApiClient.swift in Sources */,
+				AA1302861D6AB43C0078A06D /* TDBasalSet.swift in Sources */,
 				AABC678C1D637C8300BF2442 /* TidepoolData.swift in Sources */,
+				AA13028F1D6AB7690078A06D /* TDPumpSettingsSet.swift in Sources */,
+				AA1302831D6AB2BD0078A06D /* TDBloodKetoneSet.swift in Sources */,
 				AABC678D1D637C8600BF2442 /* TDSet.swift in Sources */,
-				AA1F776E1D662B4600931A0D /* TDCGMSettings.swift in Sources */,
+				AA1F776E1D662B4600931A0D /* TDCgmSettings.swift in Sources */,
 				AACFD7781D57F10500E212CF /* TidepoolKitTests.swift in Sources */,
 				AABC67AE1D64DE9A00BF2442 /* TDWizard.swift in Sources */,
 				AA1F77711D6636AC00931A0D /* TDPumpSettings.swift in Sources */,
+				AA1F77761D67C98E00931A0D /* TDUpload.swift in Sources */,
+				AA1302801D6AB1D00078A06D /* TDCbgSet.swift in Sources */,
 				AABC67971D63AD6400BF2442 /* TDBasal.swift in Sources */,
 				AABC67911D637E3100BF2442 /* TDBloodKetone.swift in Sources */,
 				AABC678E1D637C8900BF2442 /* TDSmbg.swift in Sources */,
+				AA13027D1D6AAEBE0078A06D /* TDSmbgSet.swift in Sources */,
+				AA1302891D6AB57B0078A06D /* TDBolusSet.swift in Sources */,
+				AA13028C1D6AB6100078A06D /* TDCgmSettingsSet.swift in Sources */,
+				AA1302921D6AB7E30078A06D /* TDWizardSet.swift in Sources */,
 				AABC678B1D637BC100BF2442 /* TDCbg.swift in Sources */,
 				AABC67651D62AAEF00BF2442 /* Datetime.swift in Sources */,
 			);

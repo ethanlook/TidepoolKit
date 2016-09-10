@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TDCGMSettings: TidepoolData {
+public class TDCgmSettings: TidepoolData {
     
     public enum Manufacturer {
         case Dexcom

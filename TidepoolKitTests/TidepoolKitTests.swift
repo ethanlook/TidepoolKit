@@ -13,8 +13,8 @@ class TidepoolKitTests: XCTestCase {
     
     var tidepoolApi: TidepoolApiClient = TidepoolApiClient()
     
-    let username = ""
-    let password = ""
+    let username = "ethan+tidepoolkit2@lookfamily.org"
+    let password = "h@ckd@yz"
     
     override func setUp() {
         super.setUp()

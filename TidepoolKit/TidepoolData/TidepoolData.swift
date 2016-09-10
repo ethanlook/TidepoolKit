@@ -56,12 +56,16 @@ public enum TDType: String {
 
 /// A piece of Tidepool data and the common fields associated with all data.
 public class TidepoolData {
-    internal let conversionOffset = 0
+    internal var clockDriftOffset: Int = 0
+    internal var conversionOffset: Int = 0
+    internal var deviceId: String?
     internal var deviceTime: String = Datetime.getDeviceTimeForDate(NSDate())
+    internal var guid: String?
     internal var subType: String?
     internal var time: String = Datetime.getISOStringForDate(NSDate())
-    internal let timezoneOffset: Int = Datetime.getTimezoneOffset()
+    internal var timezoneOffset: Int = Datetime.getTimezoneOffset()
     internal var type: TDType
+    internal var uploadId: String?
     
     internal init(type: TDType, subType: String?, time: NSDate?) {
         self.type = type
@@ -71,6 +75,20 @@ public class TidepoolData {
             self.deviceTime = Datetime.getDeviceTimeForDate(time!)
             self.time = Datetime.getISOStringForDate(time!)
         }
+    }
+    
+    internal init(clockDriftOffset: Int, conversionOffset: Int, deviceId: String, deviceTime: String, guid: String, time: String, timezoneOffset: Int, type: TDType, uploadId: String) {
+        
+        self.clockDriftOffset = clockDriftOffset
+        self.conversionOffset = conversionOffset
+        self.deviceId = deviceId
+        self.deviceTime = deviceTime
+        self.guid = guid
+        self.time = time
+        self.timezoneOffset = timezoneOffset
+        self.type = type
+        self.uploadId = uploadId
+        
     }
     
     /**

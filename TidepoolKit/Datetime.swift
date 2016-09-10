@@ -8,27 +8,32 @@
 
 import Foundation
 
-struct Datetime {
+public struct Datetime {
     
-    static func getISOStringForDate(date: NSDate) -> String {
+    public static func getISOStringForDate(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         return dateFormatter.stringFromDate(date)
     }
     
-    static func getDeviceTimeForDate(date: NSDate) -> String {
+    public static func getDeviceTimeForDate(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         return dateFormatter.stringFromDate(date)
     }
     
-    static func getTimezoneOffset() -> Int {
+    public static func getTimezoneOffset() -> Int {
         return NSTimeZone.localTimeZone().secondsFromGMT / 60
     }
     
-    static func dateForString(dateStr: String) -> NSDate? {
+    public static func dateForString(dateStr: String) -> NSDate? {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         return dateFormatter.dateFromString(dateStr)
+    }
+    
+    public static func dateFromComponents(components: NSDateComponents) -> NSDate? {
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        return calendar?.dateFromComponents(components)
     }
 }

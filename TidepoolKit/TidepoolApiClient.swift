@@ -86,7 +86,7 @@ public class TidepoolApiClient {
             "Content-Type":"application/json"
         ]
         
-        let body = data.toJSONForUpload(TidepoolApiClient.getUploadId("TidepoolKit", time: Datetime.getISOStringForDate(NSDate())), deviceId: DEVICE_ID)
+        let body = data.toNSDataForUpload(TidepoolApiClient.getUploadId("TidepoolKit", time: Datetime.getISOStringForDate(NSDate())), deviceId: DEVICE_ID)
         
         request("POST", baseUrl: UPLOAD_URL, urlExtension: "/data/\(self.userid)", headerDict: headerDict, body: body) { (success, data, error) in
             completion(success: success, error: error)
@@ -97,5 +97,39 @@ public class TidepoolApiClient {
         let uploadIdSuffix = "\(deviceId)_\(time)"
         let uploadIdSuffixMd5Hash = uploadIdSuffix.md5()
         return "upid_\(uploadIdSuffixMd5Hash)"
+    }
+    
+    public func fetchData(completion: (success: Bool, data: TDSet?, error: ErrorType?) -> Void) {
+        let headerDict = ["x-tidepool-session-token":"\(x_tidepool_session_token)"]
+        
+        request("GET", baseUrl: API_URL, urlExtension: "/data/\(self.userid)", headerDict: headerDict, body: nil) { (success, data, error) in
+            var parsedData: TDSet?
+            if (success) {
+                parsedData = TDSet()
+                let jsonResult: NSArray = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+                
+                for item in jsonResult {
+                    switch TDType(rawValue: item.valueForKey("type") as! String)! {
+                    case .Basal: break
+//                        basal.add(someData as! TDBasal)
+                    case .BloodKetone: break
+//                        bloodKetone.add(someData as! TDBloodKetone)
+                    case .Bolus: break
+//                        bolus.add(someData as! TDBolus)
+                    case .CBG:
+                        parsedData!.add(TDCbg.makeObjectFromJSON(item))
+                    case .CGMSettings: break
+//                        cgmSettings.add(someData as! TDCgmSettings)
+                    case .PumpSettings: break
+//                        pumpSettings.add(someData as! TDPumpSettings)
+                    case .SMBG:
+                        parsedData!.add(TDSmbg.makeObjectFromJSON(item))
+                    case .Wizard: break
+//                        wizard.add(someData as! TDWizard)
+                    }
+                }
+            }
+            completion(success: success, data: parsedData, error: error)
+        }
     }
 }
