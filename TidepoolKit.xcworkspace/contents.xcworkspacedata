@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../Loop/Loop.xcodeproj">
+      location = "group:Carthage/Checkouts/CryptoSwift/CryptoSwift.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:TidepoolKit.xcodeproj">
