@@ -9,6 +9,11 @@
 import Foundation
 import CryptoSwift
 
+/*
+ While you could change these URLs to point at production
+    REST APIs, our friends at Tidepool would really prefer
+    if you didn't do that.
+ */
 private let API_URL = "https://int-api.tidepool.org"
 private let UPLOAD_URL = "https://int-uploads.tidepool.org"
 private let DEVICE_ID = "TidepoolKit"
