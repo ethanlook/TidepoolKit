@@ -23,7 +23,6 @@
 		AA13028F1D6AB7690078A06D /* TDPumpSettingsSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA13028D1D6AB7690078A06D /* TDPumpSettingsSet.swift */; };
 		AA1302911D6AB7E30078A06D /* TDWizardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1302901D6AB7E30078A06D /* TDWizardSet.swift */; };
 		AA1302921D6AB7E30078A06D /* TDWizardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1302901D6AB7E30078A06D /* TDWizardSet.swift */; };
-		AA15D8981D851DB00070BD78 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA15D8971D851DB00070BD78 /* CryptoSwift.framework */; };
 		AA1F776D1D662B4600931A0D /* TDCgmSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F776C1D662B4600931A0D /* TDCgmSettings.swift */; };
 		AA1F776E1D662B4600931A0D /* TDCgmSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F776C1D662B4600931A0D /* TDCgmSettings.swift */; };
 		AA1F77701D6636AC00931A0D /* TDPumpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F776F1D6636AC00931A0D /* TDPumpSettings.swift */; };
@@ -53,6 +52,7 @@
 		AACFD7781D57F10500E212CF /* TidepoolKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACFD7771D57F10500E212CF /* TidepoolKitTests.swift */; };
 		AACFD7CB1D58E33700E212CF /* TidepoolApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACFD7851D58007900E212CF /* TidepoolApiClient.swift */; };
 		AACFD7CC1D58E33800E212CF /* TidepoolApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACFD7851D58007900E212CF /* TidepoolApiClient.swift */; };
+		AADB933F1D85C1FE008A5ED7 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADB933E1D85C1FE008A5ED7 /* CryptoSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +74,6 @@
 		AA13028A1D6AB6100078A06D /* TDCgmSettingsSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCgmSettingsSet.swift; sourceTree = "<group>"; };
 		AA13028D1D6AB7690078A06D /* TDPumpSettingsSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDPumpSettingsSet.swift; sourceTree = "<group>"; };
 		AA1302901D6AB7E30078A06D /* TDWizardSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDWizardSet.swift; sourceTree = "<group>"; };
-		AA15D8971D851DB00070BD78 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		AA1F776C1D662B4600931A0D /* TDCgmSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCgmSettings.swift; sourceTree = "<group>"; };
 		AA1F776F1D6636AC00931A0D /* TDPumpSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDPumpSettings.swift; sourceTree = "<group>"; };
 		AA1F77741D67C98E00931A0D /* TDUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDUpload.swift; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		AACFD7771D57F10500E212CF /* TidepoolKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidepoolKitTests.swift; sourceTree = "<group>"; };
 		AACFD7791D57F10500E212CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AACFD7851D58007900E212CF /* TidepoolApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidepoolApiClient.swift; sourceTree = "<group>"; };
+		AADB933E1D85C1FE008A5ED7 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA15D8981D851DB00070BD78 /* CryptoSwift.framework in Frameworks */,
+				AADB933F1D85C1FE008A5ED7 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +119,7 @@
 		AABC679D1D64099D00BF2442 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AA15D8971D851DB00070BD78 /* CryptoSwift.framework */,
+				AADB933E1D85C1FE008A5ED7 /* CryptoSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
