@@ -52,12 +52,12 @@ class TidepoolKitTests: XCTestCase {
     
     func testUpload() {
         let data = TDSet()
-                          .add(TDSmbg(units: .MGDL, value: 101, time: Datetime.dateForString("2016-08-21T06:30:00")))
-                          .add(TDCbg(units: .MGDL, value: 333, time: Datetime.dateForString("2016-08-21T06:40:00")))
-                          .add(TDBloodKetone(value: 222, time: Datetime.dateForString("2016-08-21T07:30:00")))
-                          .add(TDBolus(normal: 10.5, expectedNormal: 13, time: Datetime.dateForString("2016-08-21T07:00:00")))
-                          .add(TDBasal(deliveryType: .Temp, duration: 1800000, rate: 1.5, time: Datetime.dateForString("2016-08-21T09:00:00")))
-                          .add(TDBasal(deliveryType: .Temp, duration: 1800000, rate: 0.75, time: Datetime.dateForString("2016-08-21T09:30:00")))
+                          .add(TDSmbg(units: .MGDL, value: 101, time: Datetime.dateForString("2016-09-15T06:30:00")))
+                          .add(TDCbg(units: .MGDL, value: 333, time: Datetime.dateForString("2016-09-15T06:40:00")))
+                          .add(TDBloodKetone(value: 222, time: Datetime.dateForString("2016-09-15T07:30:00")))
+                          .add(TDBolus(normal: 10.5, expectedNormal: 13, time: Datetime.dateForString("2016-09-15T07:00:00")))
+                          .add(TDBasal(deliveryType: .Temp, duration: 2000000, rate: 1.5, time: Datetime.dateForString("2016-09-15T09:00:00")))
+                          .add(TDBasal(deliveryType: .Temp, duration: 1800000, rate: 0.75, time: Datetime.dateForString("2016-09-15T09:30:00")))
         
         
         let expectation = expectationWithDescription("Upload")
@@ -87,7 +87,7 @@ class TidepoolKitTests: XCTestCase {
         
         let insulinSensitivity = TDPumpSettings.InsulinSensitivity(segments: [TDPumpSettings.InsulinSensitivity.Segment(start: 0, amount: 60)])
         
-        let pumpSettings = TDPumpSettings(units: units, activeSchedule: "Exercise", basalSchedules: basalSchedules, bgTarget: bgTarget, carbRatio: carbRatio, insulinSensitivity: insulinSensitivity, time: Datetime.dateForString("2016-08-21T06:30:00"))
+        let pumpSettings = TDPumpSettings(units: units, activeSchedule: "Exercise", basalSchedules: basalSchedules, bgTarget: bgTarget, carbRatio: carbRatio, insulinSensitivity: insulinSensitivity, time: Datetime.dateForString("2016-09-15T06:30:00"))
         
         let data = TDSet().add(pumpSettings)
         

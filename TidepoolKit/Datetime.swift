@@ -10,6 +10,8 @@ import Foundation
 
 public struct Datetime {
     
+    private static let MILLI_IN_MIN = 60000
+    
     public static func getISOStringForDate(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
@@ -27,13 +29,31 @@ public struct Datetime {
     }
     
     public static func dateForString(dateStr: String) -> NSDate? {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        return dateFormatter.dateFromString(dateStr)
+        let dateFormatterA = NSDateFormatter()
+        dateFormatterA.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        
+        let dateFormatterB = NSDateFormatter()
+        dateFormatterB.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZ"
+        
+        return dateFormatterA.dateFromString(dateStr) ?? dateFormatterB.dateFromString(dateStr)
     }
     
     public static func dateFromComponents(components: NSDateComponents) -> NSDate? {
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        return calendar?.dateFromComponents(components)
+        let calendar = NSCalendar.currentCalendar()
+        return calendar.dateFromComponents(components)
+    }
+    
+    public static func endTime(date: NSDate, minutes duration: Int) -> NSDate {
+        let calendar = NSCalendar.currentCalendar()
+        return calendar.dateByAddingUnit(.Minute, value: 5, toDate: date, options: [])!
+    }
+    
+    public static func minutesBetweenDates(start: NSDate, end: NSDate) -> Int {
+        let calendar = NSCalendar.currentCalendar()
+        return calendar.components(.Minute, fromDate: start, toDate: end, options: []).minute
+    }
+    
+    public static func millisecondsBetweenDates(start: NSDate, end: NSDate) -> Int {
+        return minutesBetweenDates(start, end: end) * MILLI_IN_MIN
     }
 }

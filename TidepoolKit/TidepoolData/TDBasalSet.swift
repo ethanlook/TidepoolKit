@@ -28,6 +28,38 @@ public class TDBasalSet {
     }
     
     /**
+     Fixes any overlapping basal durations.
+     
+     In the Tidepool ingestion services, basals that overlap are
+        marked as a `mismatched-series`. To prevent that, before
+        upload, we must remove any overlaps.
+     */
+    private func processForUpload() {
+        
+        // TODO: treat case count 2 same as general case
+        if data.count <= 1 {
+            return
+        } else if data.count == 2 {
+            let first = data[0],
+                firstStart = Datetime.dateForString(first.time)!,
+                secondStart = Datetime.dateForString(data[1].time)!
+            
+            first.duration = min(first.duration, Datetime.millisecondsBetweenDates(firstStart, end: secondStart))
+            
+            return
+        }
+        
+        for i in 0...(data.count - 2) {
+            let cur = data[i],
+                curStart = Datetime.dateForString(cur.time)!,
+                nextStart = Datetime.dateForString(data[i + 1].time)!
+            
+            cur.duration = min(cur.duration, Datetime.minutesBetweenDates(curStart, end: nextStart))
+        }
+        
+    }
+    
+    /**
      Creates the associated JSON array for upload.
      
      - Parameter uploadId: The associated `uploadId` to be included in each piece of `TDBasal`.
@@ -35,6 +67,9 @@ public class TDBasalSet {
      - Returns: `[[String : AnyObject]]` for the associated `TDBasalSet`.
      */
     internal func toJSONArrayForUpload(uploadId: String, deviceId: String) -> [[String : AnyObject]] {
+        
+        processForUpload()
+        
         return data.map { (d) -> [String : AnyObject] in
             return d.toDictionary(uploadId, deviceId: deviceId)
         }
