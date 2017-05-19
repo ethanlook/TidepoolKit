@@ -9,9 +9,9 @@
 import Foundation
 
 /// A set for holding SMBG values.
-public class TDSmbgSet {
+open class TDSmbgSet {
     
-    private var data = [TDSmbg]()
+    fileprivate var data = [TDSmbg]()
     
     /// Returns an empty `TDSmbgSet`.
     public init() { }
@@ -22,7 +22,7 @@ public class TDSmbgSet {
      - Parameter someSmbg: The `TDSmbg` to be added to the set.
      - Returns: the `TDSmbgSet` itself for easy chaining.
      */
-    public func add(someSmbg: TDSmbg) -> TDSmbgSet {
+    open func add(_ someSmbg: TDSmbg) -> TDSmbgSet {
         data.append(someSmbg)
         return self
     }
@@ -34,7 +34,7 @@ public class TDSmbgSet {
      - Parameter deviceId: The associated `deviceId` to be included in each piece of `TDSmbg`.
      - Returns: `[[String : AnyObject]]` for the associated `TDSmbgSet`.
      */
-    internal func toJSONArrayForUpload(uploadId: String, deviceId: String) -> [[String : AnyObject]] {
+    internal func toJSONArrayForUpload(_ uploadId: String, deviceId: String) -> [[String : AnyObject]] {
         return data.map { (d) -> [String : AnyObject] in
             return d.toDictionary(uploadId, deviceId: deviceId)
         }

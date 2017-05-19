@@ -21,7 +21,7 @@ private class TDUpload: TidepoolData {
      - Parameter time: Optional, the timestamp at which the reading occured.
      - Returns: The `TDSmbg` object.
      */
-    private init(time: NSDate?) {
+    fileprivate init(time: Date?) {
         
         super.init(type: .SMBG, subType: nil, time: time)
     }
@@ -35,17 +35,17 @@ private class TDUpload: TidepoolData {
      - Parameter deviceId: The associated `deviceId` to be included in the dictionary.
      - Returns: A dictionary representation of the `TDSmbg` object.
      */
-    override func toDictionary(uploadId: String, deviceId: String) -> [String : AnyObject] {
+    override func toDictionary(_ uploadId: String, deviceId: String) -> [String : AnyObject] {
         let retval: [String : AnyObject] = [
-            "clockDriftOffset": 0,
-            "conversionOffset": 0,
-            "deviceId": deviceId,
-            "deviceTime": self.deviceTime,
-            "guid": NSUUID().UUIDString,
-            "time": self.time,
-            "timezoneOffset": self.timezoneOffset,
-            "type": self.type.rawValue,
-            "uploadId": uploadId
+            "clockDriftOffset": 0 as AnyObject,
+            "conversionOffset": 0 as AnyObject,
+            "deviceId": deviceId as AnyObject,
+            "deviceTime": self.deviceTime as AnyObject,
+            "guid": UUID().uuidString as AnyObject,
+            "time": self.time as AnyObject,
+            "timezoneOffset": self.timezoneOffset as AnyObject,
+            "type": self.type.rawValue as AnyObject,
+            "uploadId": uploadId as AnyObject
         ]
         return retval
     }

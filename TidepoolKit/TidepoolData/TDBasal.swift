@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TDBasal: TidepoolData {
+open class TDBasal: TidepoolData {
     
     public enum DeliveryType: String {
         case Scheduled = "scheduled"
@@ -20,7 +20,7 @@ public class TDBasal: TidepoolData {
     var duration: Int
     var rate: Double
     
-    public init(deliveryType: DeliveryType, duration: Int, rate: Double, time: NSDate?) {
+    public init(deliveryType: DeliveryType, duration: Int, rate: Double, time: Date?) {
         self.deliveryType = deliveryType
         self.duration = duration
         self.rate = rate
@@ -28,20 +28,20 @@ public class TDBasal: TidepoolData {
         super.init(type: .Basal, subType: nil, time: time)
     }
     
-    override func toDictionary(uploadId: String, deviceId: String) -> [String : AnyObject] {
+    override func toDictionary(_ uploadId: String, deviceId: String) -> [String : AnyObject] {
         let retval: [String : AnyObject] = [
-            "clockDriftOffset": 0,
-            "conversionOffset": 0,
-            "deliveryType": self.deliveryType.rawValue,
-            "deviceId": deviceId,
-            "deviceTime": self.deviceTime,
-            "duration": self.duration,
-            "rate": self.rate,
-            "guid": NSUUID().UUIDString,
-            "time": self.time,
-            "timezoneOffset": self.timezoneOffset,
-            "type": self.type.rawValue,
-            "uploadId": uploadId
+            "clockDriftOffset": 0 as AnyObject,
+            "conversionOffset": 0 as AnyObject,
+            "deliveryType": self.deliveryType.rawValue as AnyObject,
+            "deviceId": deviceId as AnyObject,
+            "deviceTime": self.deviceTime as AnyObject,
+            "duration": self.duration as AnyObject,
+            "rate": self.rate as AnyObject,
+            "guid": UUID().uuidString as AnyObject,
+            "time": self.time as AnyObject,
+            "timezoneOffset": self.timezoneOffset as AnyObject,
+            "type": self.type.rawValue as AnyObject,
+            "uploadId": uploadId as AnyObject
         ]
         return retval
     }

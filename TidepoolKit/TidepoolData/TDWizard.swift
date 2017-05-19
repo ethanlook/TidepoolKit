@@ -9,19 +9,19 @@
 import Foundation
 
 // Note: TDWizard will be depricated in favor of TDCalculator
-public class TDWizard: TidepoolData {
+open class TDWizard: TidepoolData {
     
-    private var bolus: TDBolus
-    private var units: TDUnit.BG
-    private var bgInput: Double?
-    private var bgTarget: BGTarget?
-    private var carbInput: Int?
-    private var insulinCarbRatio: Int?
-    private var insulinOnBoard: Double?
-    private var insulinSensitivity: Double?
-    private var recommended: RecommendedBolus?
+    fileprivate var bolus: TDBolus
+    fileprivate var units: TDUnit.BG
+    fileprivate var bgInput: Double?
+    fileprivate var bgTarget: BGTarget?
+    fileprivate var carbInput: Int?
+    fileprivate var insulinCarbRatio: Int?
+    fileprivate var insulinOnBoard: Double?
+    fileprivate var insulinSensitivity: Double?
+    fileprivate var recommended: RecommendedBolus?
     
-    public init(units: TDUnit.BG, bolus: TDBolus, bgInput: Double?, bgTarget: BGTarget?, carbInput: Int?, insulinCarbRatio: Int?, insulinOnBoard: Double?, insulinSensitivity: Double?, recommended: RecommendedBolus?, time: NSDate?) {
+    public init(units: TDUnit.BG, bolus: TDBolus, bgInput: Double?, bgTarget: BGTarget?, carbInput: Int?, insulinCarbRatio: Int?, insulinOnBoard: Double?, insulinSensitivity: Double?, recommended: RecommendedBolus?, time: Date?) {
         
         self.units = units
         self.bolus = bolus
@@ -36,42 +36,42 @@ public class TDWizard: TidepoolData {
         super.init(type: .Wizard, subType: nil, time: time)
     }
     
-    override func toDictionary(uploadId: String, deviceId: String) -> [String : AnyObject] {
+    override func toDictionary(_ uploadId: String, deviceId: String) -> [String : AnyObject] {
         var retval: [String : AnyObject] = [
-            "bolus": self.bolus.toDictionary(uploadId, deviceId: deviceId),
-            "clockDriftOffset": 0,
-            "conversionOffset": 0,
-            "deviceId": deviceId,
-            "deviceTime": self.deviceTime,
-            "guid": NSUUID().UUIDString,
-            "subType": self.subType!,
-            "time": self.time,
-            "timezoneOffset": self.timezoneOffset,
-            "type": self.type.rawValue,
-            "units": self.units.rawValue,
-            "uploadId": uploadId
+            "bolus": self.bolus.toDictionary(uploadId, deviceId: deviceId) as AnyObject,
+            "clockDriftOffset": 0 as AnyObject,
+            "conversionOffset": 0 as AnyObject,
+            "deviceId": deviceId as AnyObject,
+            "deviceTime": self.deviceTime as AnyObject,
+            "guid": UUID().uuidString as AnyObject,
+            "subType": self.subType! as AnyObject,
+            "time": self.time as AnyObject,
+            "timezoneOffset": self.timezoneOffset as AnyObject,
+            "type": self.type.rawValue as AnyObject,
+            "units": self.units.rawValue as AnyObject,
+            "uploadId": uploadId as AnyObject
         ]
         
         if (self.bgInput != nil) {
-            retval["bgInput"] = self.bgInput!
+            retval["bgInput"] = self.bgInput! as AnyObject
         }
         if (self.bgTarget != nil) {
-            retval["bgTarget"] = self.bgTarget!.toDictionary()
+            retval["bgTarget"] = self.bgTarget!.toDictionary() as AnyObject
         }
         if (self.carbInput != nil) {
-            retval["carbInput"] = self.carbInput!
+            retval["carbInput"] = self.carbInput! as AnyObject
         }
         if (self.insulinCarbRatio != nil) {
-            retval["insulinCarbRatio"] = self.insulinCarbRatio!
+            retval["insulinCarbRatio"] = self.insulinCarbRatio! as AnyObject
         }
         if (self.insulinOnBoard != nil) {
-            retval["insulinOnBoard"] = self.insulinOnBoard!
+            retval["insulinOnBoard"] = self.insulinOnBoard! as AnyObject
         }
         if (self.insulinSensitivity != nil) {
-            retval["insulinSensitivity"] = self.insulinSensitivity!
+            retval["insulinSensitivity"] = self.insulinSensitivity! as AnyObject
         }
         if (self.recommended != nil) {
-            retval["recommended"] = self.recommended!.toDictionary()
+            retval["recommended"] = self.recommended!.toDictionary() as AnyObject
         }
         
         return retval
@@ -79,42 +79,42 @@ public class TDWizard: TidepoolData {
     
     public struct BGTarget {
         
-        private enum Schema {
-            case Animas
-            case Insulet
-            case Medtronic
-            case Tandem
+        fileprivate enum Schema {
+            case animas
+            case insulet
+            case medtronic
+            case tandem
         }
         
-        private var schema: Schema
-        private var low: Double?
-        private var high: Double?
-        private var target: Double?
-        private var range: Double?
+        fileprivate var schema: Schema
+        fileprivate var low: Double?
+        fileprivate var high: Double?
+        fileprivate var target: Double?
+        fileprivate var range: Double?
         
         public init(target: Double, range: Double) {
-            self.schema = .Animas
+            self.schema = .animas
             
             self.target = target
             self.range = range
         }
         
         public init(target: Double, high: Double) {
-            self.schema = .Insulet
+            self.schema = .insulet
             
             self.target = target
             self.high = high
         }
         
         public init(low: Double, high: Double) {
-            self.schema = .Medtronic
+            self.schema = .medtronic
             
             self.low = low
             self.high = high
         }
         
         public init(target: Double) {
-            self.schema = .Tandem
+            self.schema = .tandem
             
             self.target = target
         }
@@ -123,24 +123,24 @@ public class TDWizard: TidepoolData {
             let retval: [String : AnyObject]
             
             switch self.schema {
-            case .Animas:
+            case .animas:
                 retval = [
-                    "target": self.target!,
-                    "range": self.range!
+                    "target": self.target! as AnyObject,
+                    "range": self.range! as AnyObject
                 ]
-            case .Insulet:
+            case .insulet:
                 retval = [
-                    "target": self.target!,
-                    "high": self.high!
+                    "target": self.target! as AnyObject,
+                    "high": self.high! as AnyObject
                 ]
-            case .Medtronic:
+            case .medtronic:
                 retval = [
-                    "low": self.low!,
-                    "high": self.high!
+                    "low": self.low! as AnyObject,
+                    "high": self.high! as AnyObject
                 ]
-            case .Tandem:
+            case .tandem:
                 retval = [
-                    "target": self.target!
+                    "target": self.target! as AnyObject
                 ]
             }
             
@@ -149,9 +149,9 @@ public class TDWizard: TidepoolData {
     }
     
     public struct RecommendedBolus {
-        private var carb: Double?
-        private var correction: Double?
-        private var net: Double?
+        fileprivate var carb: Double?
+        fileprivate var correction: Double?
+        fileprivate var net: Double?
         
         public init(carb: Double?, correction: Double?, net: Double?) {
             self.carb = carb
@@ -163,13 +163,13 @@ public class TDWizard: TidepoolData {
             var retval: [String : AnyObject] = [:]
             
             if (self.carb != nil) {
-                retval["carb"] = self.carb!
+                retval["carb"] = self.carb! as AnyObject
             }
             if (self.correction != nil) {
-                retval["correction"] = self.correction!
+                retval["correction"] = self.correction! as AnyObject
             }
             if (self.net != nil) {
-                retval["net"] = self.net!
+                retval["net"] = self.net! as AnyObject
             }
             
             return retval

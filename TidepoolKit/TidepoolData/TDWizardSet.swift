@@ -9,9 +9,9 @@
 import Foundation
 
 /// A set for holding wizard/calculator events.
-public class TDWizardSet {
+open class TDWizardSet {
     
-    private var data = [TDWizard]()
+    fileprivate var data = [TDWizard]()
     
     /// Returns an empty `TDWizardSet`.
     public init() { }
@@ -22,7 +22,7 @@ public class TDWizardSet {
      - Parameter someWizard: The `TDWizard` to be added to the set.
      - Returns: the `TDWizardSet` itself for easy chaining.
      */
-    public func add(someWizard: TDWizard) -> TDWizardSet {
+    open func add(_ someWizard: TDWizard) -> TDWizardSet {
         data.append(someWizard)
         return self
     }
@@ -34,7 +34,7 @@ public class TDWizardSet {
      - Parameter deviceId: The associated `deviceId` to be included in each piece of `TDWizard`.
      - Returns: `[[String : AnyObject]]` for the associated `TDWizardSet`.
      */
-    internal func toJSONArrayForUpload(uploadId: String, deviceId: String) -> [[String : AnyObject]] {
+    internal func toJSONArrayForUpload(_ uploadId: String, deviceId: String) -> [[String : AnyObject]] {
         return data.map { (d) -> [String : AnyObject] in
             return d.toDictionary(uploadId, deviceId: deviceId)
         }

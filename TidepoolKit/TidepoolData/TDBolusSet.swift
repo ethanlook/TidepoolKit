@@ -9,9 +9,9 @@
 import Foundation
 
 /// A set for holding bolus events.
-public class TDBolusSet {
+open class TDBolusSet {
     
-    private var data = [TDBolus]()
+    fileprivate var data = [TDBolus]()
     
     /// Returns an empty `TDBolusSet`.
     public init() { }
@@ -22,7 +22,7 @@ public class TDBolusSet {
      - Parameter someBolus: The `TDBolus` to be added to the set.
      - Returns: the `TDBolusSet` itself for easy chaining.
      */
-    public func add(someBolus: TDBolus) -> TDBolusSet {
+    open func add(_ someBolus: TDBolus) -> TDBolusSet {
         data.append(someBolus)
         return self
     }
@@ -34,7 +34,7 @@ public class TDBolusSet {
      - Parameter deviceId: The associated `deviceId` to be included in each piece of `TDBolus`.
      - Returns: `[[String : AnyObject]]` for the associated `TDBolusSet`.
      */
-    internal func toJSONArrayForUpload(uploadId: String, deviceId: String) -> [[String : AnyObject]] {
+    internal func toJSONArrayForUpload(_ uploadId: String, deviceId: String) -> [[String : AnyObject]] {
         return data.map { (d) -> [String : AnyObject] in
             return d.toDictionary(uploadId, deviceId: deviceId)
         }

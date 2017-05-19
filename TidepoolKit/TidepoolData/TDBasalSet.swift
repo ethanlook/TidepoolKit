@@ -9,9 +9,9 @@
 import Foundation
 
 /// A set for holding basal segments.
-public class TDBasalSet {
+open class TDBasalSet {
     
-    private var data = [TDBasal]()
+    fileprivate var data = [TDBasal]()
     
     /// Returns an empty `TDBasalSet`.
     public init() { }
@@ -22,7 +22,7 @@ public class TDBasalSet {
      - Parameter someBasal: The `TDBasal` to be added to the set.
      - Returns: the `TDBasalSet` itself for easy chaining.
      */
-    public func add(someBasal: TDBasal) -> TDBasalSet {
+    open func add(_ someBasal: TDBasal) -> TDBasalSet {
         data.append(someBasal)
         return self
     }
@@ -34,7 +34,7 @@ public class TDBasalSet {
         marked as a `mismatched-series`. To prevent that, before
         upload, we must remove any overlaps.
      */
-    private func processForUpload() {
+    fileprivate func processForUpload() {
         
         // TODO: treat case count 2 same as general case
         if data.count <= 1 {
@@ -66,7 +66,7 @@ public class TDBasalSet {
      - Parameter deviceId: The associated `deviceId` to be included in each piece of `TDBasal`.
      - Returns: `[[String : AnyObject]]` for the associated `TDBasalSet`.
      */
-    internal func toJSONArrayForUpload(uploadId: String, deviceId: String) -> [[String : AnyObject]] {
+    internal func toJSONArrayForUpload(_ uploadId: String, deviceId: String) -> [[String : AnyObject]] {
         
         processForUpload()
         

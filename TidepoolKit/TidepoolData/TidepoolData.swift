@@ -55,19 +55,19 @@ public enum TDType: String {
 }
 
 /// A piece of Tidepool data and the common fields associated with all data.
-public class TidepoolData {
+open class TidepoolData {
     internal var clockDriftOffset: Int = 0
     internal var conversionOffset: Int = 0
     internal var deviceId: String?
-    internal var deviceTime: String = Datetime.getDeviceTimeForDate(NSDate())
+    internal var deviceTime: String = Datetime.getDeviceTimeForDate(Date())
     internal var guid: String?
     internal var subType: String?
-    internal var time: String = Datetime.getISOStringForDate(NSDate())
+    internal var time: String = Datetime.getISOStringForDate(Date())
     internal var timezoneOffset: Int = Datetime.getTimezoneOffset()
     internal var type: TDType
     internal var uploadId: String?
     
-    internal init(type: TDType, subType: String?, time: NSDate?) {
+    internal init(type: TDType, subType: String?, time: Date?) {
         self.type = type
         self.subType = subType
         
@@ -100,7 +100,7 @@ public class TidepoolData {
      - Parameter deviceId: The associated `deviceId` to be included in the dictionary.
      - Returns: A dictionary representation of the `TDSmbg` object.
      */
-    internal func toDictionary(uploadId: String, deviceId: String) -> [String : AnyObject] {
+    internal func toDictionary(_ uploadId: String, deviceId: String) -> [String : AnyObject] {
         return [:]
     }
 }

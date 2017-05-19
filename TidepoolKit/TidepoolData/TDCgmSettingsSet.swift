@@ -9,9 +9,9 @@
 import Foundation
 
 /// A set for holding CGM settings.
-public class TDCgmSettingsSet {
+open class TDCgmSettingsSet {
     
-    private var data = [TDCgmSettings]()
+    fileprivate var data = [TDCgmSettings]()
     
     /// Returns an empty `TDCgmSettingsSet`.
     public init() { }
@@ -22,7 +22,7 @@ public class TDCgmSettingsSet {
      - Parameter someCgmSettings: The `TDCgmSettings` to be added to the set.
      - Returns: the `TDCgmSettingsSet` itself for easy chaining.
      */
-    public func add(someCgmSettings: TDCgmSettings) -> TDCgmSettingsSet {
+    open func add(_ someCgmSettings: TDCgmSettings) -> TDCgmSettingsSet {
         data.append(someCgmSettings)
         return self
     }
@@ -34,7 +34,7 @@ public class TDCgmSettingsSet {
      - Parameter deviceId: The associated `deviceId` to be included in each piece of `TDCgmSettings`.
      - Returns: `[[String : AnyObject]]` for the associated `TDCgmSettingsSet`.
      */
-    internal func toJSONArrayForUpload(uploadId: String, deviceId: String) -> [[String : AnyObject]] {
+    internal func toJSONArrayForUpload(_ uploadId: String, deviceId: String) -> [[String : AnyObject]] {
         return data.map { (d) -> [String : AnyObject] in
             return d.toDictionary(uploadId, deviceId: deviceId)
         }

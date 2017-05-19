@@ -18,14 +18,14 @@ class TidepoolKitTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        let expectation = expectationWithDescription("Login")
+        let expectation = self.expectation(description: "Login")
 
         self.tidepoolApi.login(self.username, password: self.password) { (success, error) in
             XCTAssertTrue(success)
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(10) { error in
+        waitForExpectations(timeout: 10) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             }
@@ -36,14 +36,14 @@ class TidepoolKitTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
         
-        let expectation = expectationWithDescription("Logout")
+        let expectation = self.expectation(description: "Logout")
         
         self.tidepoolApi.logout() { (success, error) in
             XCTAssertTrue(success)
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(10) { error in
+        waitForExpectations(timeout: 10) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             }
@@ -60,13 +60,13 @@ class TidepoolKitTests: XCTestCase {
                           .add(TDBasal(deliveryType: .Temp, duration: 1800000, rate: 0.75, time: Datetime.dateForString("2016-09-15T09:30:00")))
         
         
-        let expectation = expectationWithDescription("Upload")
+        let expectation = self.expectation(description: "Upload")
         self.tidepoolApi.uploadData(data) { (success, error) in
             XCTAssertTrue(success)
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(10) { error in
+        waitForExpectations(timeout: 10) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             }
@@ -91,13 +91,13 @@ class TidepoolKitTests: XCTestCase {
         
         let data = TDSet().add(pumpSettings)
         
-        let expectation = expectationWithDescription("Upload Pump Settings")
+        let expectation = self.expectation(description: "Upload Pump Settings")
         self.tidepoolApi.uploadData(data) { (success, error) in
             XCTAssertTrue(success)
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(10) { error in
+        waitForExpectations(timeout: 10) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             }

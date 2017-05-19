@@ -8,21 +8,21 @@
 
 import Foundation
 
-public class TDPumpSettings: TidepoolData {
+open class TDPumpSettings: TidepoolData {
     
-    private var units: Units
-    private var activeSchedule: String
-    private var basalSchedules: BasalSchedules
+    fileprivate var units: Units
+    fileprivate var activeSchedule: String
+    fileprivate var basalSchedules: BasalSchedules
     
-    private var bgTarget: BGTarget?
-    private var carbRatio: CarbRatio?
-    private var insulinSensitivity: InsulinSensitivity?
+    fileprivate var bgTarget: BGTarget?
+    fileprivate var carbRatio: CarbRatio?
+    fileprivate var insulinSensitivity: InsulinSensitivity?
     
-    private var bgTargets: BGTargets?
-    private var carbRatios: CarbRatios?
-    private var insulinSensitivities: InsulinSensitivities?
+    fileprivate var bgTargets: BGTargets?
+    fileprivate var carbRatios: CarbRatios?
+    fileprivate var insulinSensitivities: InsulinSensitivities?
     
-    public init(units: Units, activeSchedule: String, basalSchedules: BasalSchedules, bgTarget: BGTarget, carbRatio: CarbRatio, insulinSensitivity: InsulinSensitivity, time: NSDate?) {
+    public init(units: Units, activeSchedule: String, basalSchedules: BasalSchedules, bgTarget: BGTarget, carbRatio: CarbRatio, insulinSensitivity: InsulinSensitivity, time: Date?) {
         
         self.units = units
         self.activeSchedule = activeSchedule
@@ -32,10 +32,10 @@ public class TDPumpSettings: TidepoolData {
         self.carbRatio = carbRatio
         self.insulinSensitivity = insulinSensitivity
         
-        super.init(type: .PumpSettings, subType: nil, time: time)
+        super.init(type: .PumpSettings, subType: nil, time: time!)
     }
     
-    public init(units: Units, activeSchedule: String, basalSchedules: BasalSchedules, bgTargets: BGTargets, carbRatios: CarbRatios, insulinSensitivities: InsulinSensitivities, time: NSDate?) {
+    public init(units: Units, activeSchedule: String, basalSchedules: BasalSchedules, bgTargets: BGTargets, carbRatios: CarbRatios, insulinSensitivities: InsulinSensitivities, time: Date?) {
         
         self.units = units
         self.activeSchedule = activeSchedule
@@ -48,39 +48,39 @@ public class TDPumpSettings: TidepoolData {
         super.init(type: .PumpSettings, subType: nil, time: time)
     }
     
-    override func toDictionary(uploadId: String, deviceId: String) -> [String : AnyObject] {
+    override func toDictionary(_ uploadId: String, deviceId: String) -> [String : AnyObject] {
         var retval: [String : AnyObject] = [
-            "activeSchedule": self.activeSchedule,
-            "basalSchedules": self.basalSchedules.toDictionary(),
-            "clockDriftOffset": 0,
-            "conversionOffset": 0,
-            "deviceId": deviceId,
-            "deviceTime": self.deviceTime,
-            "guid": NSUUID().UUIDString,
-            "time": self.time,
-            "timezoneOffset": self.timezoneOffset,
-            "type": self.type.rawValue,
-            "units": self.units.toDictionary(),
-            "uploadId": uploadId
+            "activeSchedule": self.activeSchedule as AnyObject,
+            "basalSchedules": self.basalSchedules.toDictionary() as AnyObject,
+            "clockDriftOffset": 0 as AnyObject,
+            "conversionOffset": 0 as AnyObject,
+            "deviceId": deviceId as AnyObject,
+            "deviceTime": self.deviceTime as AnyObject,
+            "guid": UUID().uuidString as AnyObject,
+            "time": self.time as AnyObject,
+            "timezoneOffset": self.timezoneOffset as AnyObject,
+            "type": self.type.rawValue as AnyObject,
+            "units": self.units.toDictionary() as AnyObject,
+            "uploadId": uploadId as AnyObject
         ]
         
         if (self.bgTarget != nil && self.carbRatio != nil && self.insulinSensitivity != nil) {
-            retval["bgTarget"] = self.bgTarget!.toDictionary()
-            retval["carbRatio"] = self.carbRatio!.toDictionary()
-            retval["insulinSensitivity"] = self.insulinSensitivity!.toDictionary()
+            retval["bgTarget"] = self.bgTarget!.toDictionary() as AnyObject
+            retval["carbRatio"] = self.carbRatio!.toDictionary() as AnyObject
+            retval["insulinSensitivity"] = self.insulinSensitivity!.toDictionary() as AnyObject
         }
         if (self.bgTargets != nil && self.carbRatios != nil && self.insulinSensitivities != nil) {
-            retval["bgTargets"] = self.bgTargets!.toDictionary()
-            retval["carbRatios"] = self.carbRatios!.toDictionary()
-            retval["insulinSensitivities"] = self.insulinSensitivities!.toDictionary()
+            retval["bgTargets"] = self.bgTargets!.toDictionary() as AnyObject
+            retval["carbRatios"] = self.carbRatios!.toDictionary() as AnyObject
+            retval["insulinSensitivities"] = self.insulinSensitivities!.toDictionary() as AnyObject
         }
         
         return retval
     }
     
     public struct Units {
-        private var carbs: TDUnit.Carbs
-        private var bg: TDUnit.BG
+        fileprivate var carbs: TDUnit.Carbs
+        fileprivate var bg: TDUnit.BG
         
         public init(carbs: TDUnit.Carbs, bg: TDUnit.BG) {
             self.carbs = carbs
@@ -89,8 +89,8 @@ public class TDPumpSettings: TidepoolData {
         
         internal func toDictionary() -> [String : AnyObject] {
             let retval: [String : AnyObject] = [
-                "carbs": self.carbs.rawValue,
-                "bg": self.bg.rawValue
+                "carbs": self.carbs.rawValue as AnyObject,
+                "bg": self.bg.rawValue as AnyObject
             ]
             return retval
         }
@@ -98,7 +98,7 @@ public class TDPumpSettings: TidepoolData {
     
     public struct BasalSchedules {
         
-        private var schedules: [String : BasalSchedule]
+        fileprivate var schedules: [String : BasalSchedule]
         
         public init(schedules: [String : BasalSchedule]) {
             self.schedules = schedules
@@ -107,7 +107,7 @@ public class TDPumpSettings: TidepoolData {
         internal func toDictionary() -> [String : AnyObject] {
             var retval: [String : AnyObject] = [:]
             for (name, schedule) in schedules {
-                retval[name] = schedule.toDictionary()
+                retval[name] = schedule.toDictionary() as AnyObject
             }
             return retval
         }
@@ -115,7 +115,7 @@ public class TDPumpSettings: TidepoolData {
     
     public struct BasalSchedule {
         
-        private var segments: [Segment]
+        fileprivate var segments: [Segment]
         
         public init(segments: [Segment]) {
             self.segments = segments
@@ -130,8 +130,8 @@ public class TDPumpSettings: TidepoolData {
         
         public struct Segment {
             
-            private var start: Int
-            private var rate: Double
+            fileprivate var start: Int
+            fileprivate var rate: Double
             
             public init(start: Int, rate: Double) {
                 self.start = start
@@ -140,8 +140,8 @@ public class TDPumpSettings: TidepoolData {
             
             internal func toDictionary() -> [String : AnyObject] {
                 let retval: [String : AnyObject] = [
-                    "rate": self.rate,
-                    "start": self.start
+                    "rate": self.rate as AnyObject,
+                    "start": self.start as AnyObject
                 ]
                 return retval
             }
@@ -150,7 +150,7 @@ public class TDPumpSettings: TidepoolData {
     
     public struct BGTargets {
         
-        private var schedules: [String : BGTarget]
+        fileprivate var schedules: [String : BGTarget]
         
         public init(schedules: [String : BGTarget]) {
             self.schedules = schedules
@@ -159,7 +159,7 @@ public class TDPumpSettings: TidepoolData {
         internal func toDictionary() -> [String : AnyObject] {
             var retval: [String : AnyObject] = [:]
             for (name, schedule) in schedules {
-                retval[name] = schedule.toDictionary()
+                retval[name] = schedule.toDictionary() as AnyObject
             }
             return retval
         }
@@ -167,7 +167,7 @@ public class TDPumpSettings: TidepoolData {
     
     public struct BGTarget {
 
-        private var segments: [Segment]
+        fileprivate var segments: [Segment]
         
         public init(segments: [Segment]) {
             self.segments = segments
@@ -182,22 +182,22 @@ public class TDPumpSettings: TidepoolData {
         
         public struct Segment {
             
-            private enum Schema {
-                case Animas
-                case Insulet
-                case Medtronic
-                case Tandem
+            fileprivate enum Schema {
+                case animas
+                case insulet
+                case medtronic
+                case tandem
             }
             
-            private var schema: Schema
-            private var low: Double?
-            private var high: Double?
-            private var target: Double?
-            private var range: Double?
-            private var start: Int
+            fileprivate var schema: Schema
+            fileprivate var low: Double?
+            fileprivate var high: Double?
+            fileprivate var target: Double?
+            fileprivate var range: Double?
+            fileprivate var start: Int
             
             public init(start: Int, target: Double, range: Double) {
-                self.schema = .Animas
+                self.schema = .animas
                 
                 self.start = start
                 self.target = target
@@ -205,7 +205,7 @@ public class TDPumpSettings: TidepoolData {
             }
             
             public init(start: Int, target: Double, high: Double) {
-                self.schema = .Insulet
+                self.schema = .insulet
                 
                 self.start = start
                 self.target = target
@@ -213,7 +213,7 @@ public class TDPumpSettings: TidepoolData {
             }
             
             public init(start: Int, low: Double, high: Double) {
-                self.schema = .Medtronic
+                self.schema = .medtronic
                 
                 self.start = start
                 self.low = low
@@ -221,7 +221,7 @@ public class TDPumpSettings: TidepoolData {
             }
             
             public init(start: Int, target: Double) {
-                self.schema = .Tandem
+                self.schema = .tandem
                 
                 self.start = start
                 self.target = target
@@ -229,19 +229,19 @@ public class TDPumpSettings: TidepoolData {
             
             internal func toDictionary() -> [String : AnyObject] {
                 var retval: [String : AnyObject] = [
-                    "start": self.start
+                    "start": self.start as AnyObject
                 ]
                 if (self.low != nil) {
-                    retval["low"] = self.low!
+                    retval["low"] = self.low! as AnyObject
                 }
                 if (self.high != nil) {
-                    retval["high"] = self.high!
+                    retval["high"] = self.high! as AnyObject
                 }
                 if (self.target != nil) {
-                    retval["target"] = self.target!
+                    retval["target"] = self.target! as AnyObject
                 }
                 if (self.range != nil) {
-                    retval["range"] = self.range!
+                    retval["range"] = self.range! as AnyObject
                 }
                 return retval
             }
@@ -250,7 +250,7 @@ public class TDPumpSettings: TidepoolData {
     
     public struct CarbRatios {
         
-        private var schedules: [String : CarbRatio]
+        fileprivate var schedules: [String : CarbRatio]
         
         public init(schedules: [String : CarbRatio]) {
             self.schedules = schedules
@@ -259,7 +259,7 @@ public class TDPumpSettings: TidepoolData {
         internal func toDictionary() -> [String : AnyObject] {
             var retval: [String : AnyObject] = [:]
             for (name, schedule) in schedules {
-                retval[name] = schedule.toDictionary()
+                retval[name] = schedule.toDictionary() as AnyObject
             }
             return retval
         }
@@ -267,7 +267,7 @@ public class TDPumpSettings: TidepoolData {
     
     public struct CarbRatio {
         
-        private var segments: [Segment]
+        fileprivate var segments: [Segment]
         
         public init(segments: [Segment]) {
             self.segments = segments
@@ -282,8 +282,8 @@ public class TDPumpSettings: TidepoolData {
         
         public struct Segment {
             
-            private var start: Int
-            private var amount: Int
+            fileprivate var start: Int
+            fileprivate var amount: Int
             
             public init(start: Int, amount: Int) {
                 self.start = start
@@ -292,8 +292,8 @@ public class TDPumpSettings: TidepoolData {
             
             internal func toDictionary() -> [String : AnyObject] {
                 let retval: [String : AnyObject] = [
-                    "start": self.start,
-                    "amount": self.amount
+                    "start": self.start as AnyObject,
+                    "amount": self.amount as AnyObject
                 ]
                 return retval
             }
@@ -302,7 +302,7 @@ public class TDPumpSettings: TidepoolData {
 
     public struct InsulinSensitivities {
         
-        private var schedules: [String : InsulinSensitivity]
+        fileprivate var schedules: [String : InsulinSensitivity]
         
         public init(schedules: [String : InsulinSensitivity]) {
             self.schedules = schedules
@@ -311,7 +311,7 @@ public class TDPumpSettings: TidepoolData {
         internal func toDictionary() -> [String : AnyObject] {
             var retval: [String : AnyObject] = [:]
             for (name, schedule) in schedules {
-                retval[name] = schedule.toDictionary()
+                retval[name] = schedule.toDictionary() as AnyObject
             }
             return retval
         }
@@ -319,7 +319,7 @@ public class TDPumpSettings: TidepoolData {
     
     public struct InsulinSensitivity {
         
-        private var segments: [Segment]
+        fileprivate var segments: [Segment]
         
         public init(segments: [Segment]) {
             self.segments = segments
@@ -334,8 +334,8 @@ public class TDPumpSettings: TidepoolData {
         
         public struct Segment {
             
-            private var start: Int
-            private var amount: Int
+            fileprivate var start: Int
+            fileprivate var amount: Int
             
             public init(start: Int, amount: Int) {
                 self.start = start
@@ -344,8 +344,8 @@ public class TDPumpSettings: TidepoolData {
             
             internal func toDictionary() -> [String : AnyObject] {
                 let retval: [String : AnyObject] = [
-                    "start": self.start,
-                    "amount": self.amount
+                    "start": self.start as AnyObject,
+                    "amount": self.amount as AnyObject
                 ]
                 return retval
             }

@@ -9,9 +9,9 @@
 import Foundation
 
 /// A set for holding CBG values.
-public class TDCbgSet {
+open class TDCbgSet {
     
-    private var data = [TDCbg]()
+    fileprivate var data = [TDCbg]()
     
     /// Returns an empty `TDCbgSet`.
     public init() { }
@@ -22,7 +22,7 @@ public class TDCbgSet {
      - Parameter someCbg: The `TDCbg` to be added to the set.
      - Returns: the `TDCbgSet` itself for easy chaining.
      */
-    public func add(someCbg: TDCbg) -> TDCbgSet {
+    open func add(_ someCbg: TDCbg) -> TDCbgSet {
         data.append(someCbg)
         return self
     }
@@ -34,7 +34,7 @@ public class TDCbgSet {
      - Parameter deviceId: The associated `deviceId` to be included in each piece of `TDCbg`.
      - Returns: `[[String : AnyObject]]` for the associated `TDCbgSet`.
      */
-    internal func toJSONArrayForUpload(uploadId: String, deviceId: String) -> [[String : AnyObject]] {
+    internal func toJSONArrayForUpload(_ uploadId: String, deviceId: String) -> [[String : AnyObject]] {
         return data.map { (d) -> [String : AnyObject] in
             return d.toDictionary(uploadId, deviceId: deviceId)
         }

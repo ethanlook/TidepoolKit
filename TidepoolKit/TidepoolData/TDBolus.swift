@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TDBolus: TidepoolData {
+open class TDBolus: TidepoolData {
     var normal: Double?
     var expectedNormal: Double?
     var extended: Double?
@@ -22,14 +22,14 @@ public class TDBolus: TidepoolData {
         case Combo = "dual/square" // Will change to "combo"
     }
     
-    public init(normal: Double, expectedNormal: Double?, time: NSDate?) {
+    public init(normal: Double, expectedNormal: Double?, time: Date?) {
         self.normal = normal
         self.expectedNormal = expectedNormal
         
         super.init(type: .Bolus, subType: SubType.Normal.rawValue, time: time)
     }
     
-    init(extended: Double, expectedExtended: Double?, duration: Int, expectedDuration: Int?, time: NSDate?) {
+    init(extended: Double, expectedExtended: Double?, duration: Int, expectedDuration: Int?, time: Date?) {
         self.extended = extended
         self.expectedExtended = expectedExtended
         self.duration = duration
@@ -38,7 +38,7 @@ public class TDBolus: TidepoolData {
         super.init(type: .Bolus, subType: SubType.Square.rawValue, time: time)
     }
     
-    init(normal: Double, expectedNormal: Double?, extended: Double, expectedExtended: Double?, duration: Int, expectedDuration: Int?, time: NSDate?) {
+    init(normal: Double, expectedNormal: Double?, extended: Double, expectedExtended: Double?, duration: Int, expectedDuration: Int?, time: Date?) {
         self.normal = normal
         self.expectedNormal = expectedNormal
         self.extended = extended
@@ -49,40 +49,40 @@ public class TDBolus: TidepoolData {
         super.init(type: .Bolus, subType: SubType.Combo.rawValue, time: time)
     }
     
-    override func toDictionary(uploadId: String, deviceId: String) -> [String : AnyObject] {
+    override func toDictionary(_ uploadId: String, deviceId: String) -> [String : AnyObject] {
         var retval: [String : AnyObject] = [
-            "clockDriftOffset": 0,
-            "conversionOffset": 0,
-            "deviceId": deviceId,
-            "deviceTime": self.deviceTime,
-            "guid": NSUUID().UUIDString,
-            "subType": self.subType!,
-            "time": self.time,
-            "timezoneOffset": self.timezoneOffset,
-            "type": self.type.rawValue,
-            "uploadId": uploadId
+            "clockDriftOffset": 0 as AnyObject,
+            "conversionOffset": 0 as AnyObject,
+            "deviceId": deviceId as AnyObject,
+            "deviceTime": self.deviceTime as AnyObject,
+            "guid": UUID().uuidString as AnyObject,
+            "subType": self.subType! as AnyObject,
+            "time": self.time as AnyObject,
+            "timezoneOffset": self.timezoneOffset as AnyObject,
+            "type": self.type.rawValue as AnyObject,
+            "uploadId": uploadId as AnyObject
         ]
         
         // All of the expected fields are optional.
         // A combination of normal, extended, and duration
         //  make up the three bolus subtypes.
         if (self.normal != nil) {
-            retval["normal"] = self.normal!
+            retval["normal"] = self.normal! as AnyObject
         }
         if (self.expectedNormal != nil) {
-            retval["expectedNormal"] = self.expectedNormal!
+            retval["expectedNormal"] = self.expectedNormal! as AnyObject
         }
         if (self.extended != nil) {
-            retval["extended"] = self.extended!
+            retval["extended"] = self.extended! as AnyObject
         }
         if (self.expectedExtended != nil) {
-            retval["expectedExtended"] = self.expectedExtended!
+            retval["expectedExtended"] = self.expectedExtended! as AnyObject
         }
         if (self.duration != nil) {
-            retval["duration"] = self.duration!
+            retval["duration"] = self.duration! as AnyObject
         }
         if (self.expectedDuration != nil) {
-            retval["expectedDuration"] = self.expectedDuration!
+            retval["expectedDuration"] = self.expectedDuration! as AnyObject
         }
         return retval
     }

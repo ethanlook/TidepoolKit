@@ -11,7 +11,7 @@ import Foundation
 /**
  Self-monitored blood glucose, as measured with a fingerstick blood-glucose meter.
  */
-public class TDSmbg: TidepoolData {
+open class TDSmbg: TidepoolData {
     var value: Double
     var units: TDUnit.BG
     
@@ -23,7 +23,7 @@ public class TDSmbg: TidepoolData {
      - Parameter time: Optional, the timestamp at which the reading occured.
      - Returns: The `TDSmbg` object.
      */
-    public init(units: TDUnit.BG, value: Double, time: NSDate?) {
+    public init(units: TDUnit.BG, value: Double, time: Date?) {
         self.value = value
         self.units = units
         
@@ -61,17 +61,17 @@ public class TDSmbg: TidepoolData {
      - Parameter data: The JSON to be parsed into a smbg value.
      - Returns: A `TDSmbg` object.
      */
-    static internal func makeObjectFromJSON(data: AnyObject) -> TDSmbg {
-        return TDSmbg(clockDriftOffset: data.valueForKey("clockDriftOffset") as! Int,
-                     conversionOffset: data.valueForKey("conversionOffset") as! Int,
-                     deviceId: data.valueForKey("deviceId") as! String,
-                     deviceTime: data.valueForKey("deviceTime") as! String,
-                     guid: data.valueForKey("guid") as! String,
-                     time: data.valueForKey("time") as! String,
-                     timezoneOffset: data.valueForKey("timezoneOffset") as! Int,
-                     units: TDUnit.BG(rawValue: data.valueForKey("units") as! String)!,
-                     uploadId: data.valueForKey("uploadId") as! String,
-                     value: data.valueForKey("value") as! Double)
+    static internal func makeObjectFromJSON(_ data: AnyObject) -> TDSmbg {
+        return TDSmbg(clockDriftOffset: data.value(forKey: "clockDriftOffset") as! Int,
+                     conversionOffset: data.value(forKey: "conversionOffset") as! Int,
+                     deviceId: data.value(forKey: "deviceId") as! String,
+                     deviceTime: data.value(forKey: "deviceTime") as! String,
+                     guid: data.value(forKey: "guid") as! String,
+                     time: data.value(forKey: "time") as! String,
+                     timezoneOffset: data.value(forKey: "timezoneOffset") as! Int,
+                     units: TDUnit.BG(rawValue: data.value(forKey: "units") as! String)!,
+                     uploadId: data.value(forKey: "uploadId") as! String,
+                     value: data.value(forKey: "value") as! Double)
     }
     
     /**
@@ -83,19 +83,19 @@ public class TDSmbg: TidepoolData {
      - Parameter deviceId: The associated `deviceId` to be included in the dictionary.
      - Returns: A dictionary representation of the `TDSmbg` object.
      */
-    override func toDictionary(uploadId: String, deviceId: String) -> [String : AnyObject] {
+    override func toDictionary(_ uploadId: String, deviceId: String) -> [String : AnyObject] {
         let retval: [String : AnyObject] = [
-            "clockDriftOffset": self.clockDriftOffset,
-            "conversionOffset": self.conversionOffset,
-            "deviceId": self.deviceId ?? deviceId,
-            "deviceTime": self.deviceTime,
-            "guid": NSUUID().UUIDString,
-            "time": self.time,
-            "timezoneOffset": self.timezoneOffset,
-            "type": self.type.rawValue,
-            "units": self.units.rawValue,
-            "uploadId": self.uploadId ?? uploadId,
-            "value": self.value
+            "clockDriftOffset": self.clockDriftOffset as AnyObject,
+            "conversionOffset": self.conversionOffset as AnyObject,
+            "deviceId": self.deviceId as AnyObject ?? deviceId as AnyObject,
+            "deviceTime": self.deviceTime as AnyObject,
+            "guid": UUID().uuidString as AnyObject,
+            "time": self.time as AnyObject,
+            "timezoneOffset": self.timezoneOffset as AnyObject,
+            "type": self.type.rawValue as AnyObject,
+            "units": self.units.rawValue as AnyObject,
+            "uploadId": self.uploadId as AnyObject ?? uploadId as AnyObject,
+            "value": self.value as AnyObject
         ]
         return retval
     }

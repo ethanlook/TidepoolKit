@@ -9,9 +9,9 @@
 import Foundation
 
 /// A set for holding pump settings.
-public class TDPumpSettingsSet {
+open class TDPumpSettingsSet {
     
-    private var data = [TDPumpSettings]()
+    fileprivate var data = [TDPumpSettings]()
     
     /// Returns an empty `TDPumpSettingsSet`.
     public init() { }
@@ -22,7 +22,7 @@ public class TDPumpSettingsSet {
      - Parameter somePumpSettings: The `TDPumpSettings` to be added to the set.
      - Returns: the `TDPumpSettingsSet` itself for easy chaining.
      */
-    public func add(somePumpSettings: TDPumpSettings) -> TDPumpSettingsSet {
+    open func add(_ somePumpSettings: TDPumpSettings) -> TDPumpSettingsSet {
         data.append(somePumpSettings)
         return self
     }
@@ -34,7 +34,7 @@ public class TDPumpSettingsSet {
      - Parameter deviceId: The associated `deviceId` to be included in each piece of `TDPumpSettings`.
      - Returns: `[[String : AnyObject]]` for the associated `TDPumpSettingsSet`.
      */
-    internal func toJSONArrayForUpload(uploadId: String, deviceId: String) -> [[String : AnyObject]] {
+    internal func toJSONArrayForUpload(_ uploadId: String, deviceId: String) -> [[String : AnyObject]] {
         return data.map { (d) -> [String : AnyObject] in
             return d.toDictionary(uploadId, deviceId: deviceId)
         }

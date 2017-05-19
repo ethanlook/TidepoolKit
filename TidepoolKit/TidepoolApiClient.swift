@@ -18,49 +18,49 @@ private let API_URL = "https://int-api.tidepool.org"
 private let UPLOAD_URL = "https://int-uploads.tidepool.org"
 private let DEVICE_ID = "TidepoolKit"
 
-public enum TidepoolError: ErrorType {
-    case HTTPError(status: Int)
+public enum TidepoolError: Error {
+    case httpError(status: Int)
 }
 
-public class TidepoolApiClient {
-    private var x_tidepool_session_token: String = ""
-    private var userid: String = ""
+open class TidepoolApiClient {
+    fileprivate var x_tidepool_session_token: String = ""
+    fileprivate var userid: String = ""
     
     public init() { }
     
-    private func request(method: String, baseUrl: String, urlExtension: String, headerDict: [String: String], body: NSData?, completion: (success: Bool, data: NSData?, error: ErrorType?) -> Void) {
+    fileprivate func request(_ method: String, baseUrl: String, urlExtension: String, headerDict: [String: String], body: Data?, completion: @escaping (_ success: Bool, _ data: Data?, _ error: Error?) -> Void) {
         
         var urlString = baseUrl + urlExtension
-        urlString = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-        let url = NSURL(string: urlString)
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = method
+        urlString = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        let url = URL(string: urlString)
+        let request = NSMutableURLRequest(url: url!)
+        request.httpMethod = method
         for (field, value) in headerDict {
             request.setValue(value, forHTTPHeaderField: field)
         }
-        request.HTTPBody = body
+        request.httpBody = body
         
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {(data, response, error) in
-            let httpResponse = response as! NSHTTPURLResponse
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            let httpResponse = response as! HTTPURLResponse
             
             if (httpResponse.statusCode == 200) {
                 if let x_tidepool_session_token = httpResponse.allHeaderFields["x-tidepool-session-token"] as? String {
                     self.x_tidepool_session_token = x_tidepool_session_token
                 }
                 
-                return completion(success: true, data: data, error: nil)
+                return completion(true, data, nil)
             } else {
-                return completion(success: false, data: data, error: TidepoolError.HTTPError(status: httpResponse.statusCode))
+                return completion(false, data, TidepoolError.httpError(status: httpResponse.statusCode))
             }
         }
         
         task.resume()
     }
     
-    public func login(username: String, password: String, completion: (success: Bool, error: ErrorType?) -> Void) {
+    open func login(_ username: String, password: String, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
         let loginString = NSString(format: "%@:%@", username, password)
-        let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
-        let base64LoginString = loginData.base64EncodedStringWithOptions([])
+        let loginData: Data = loginString.data(using: String.Encoding.utf8.rawValue)!
+        let base64LoginString = loginData.base64EncodedString(options: [])
         
         let headerDict = ["Authorization":"Basic \(base64LoginString)"]
         
@@ -68,53 +68,53 @@ public class TidepoolApiClient {
             
             if (success) {
                 
-                let jsonResult: NSDictionary = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                let jsonResult: NSDictionary = try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
                 
-                self.userid = jsonResult.valueForKey("userid") as! String
+                self.userid = jsonResult.value(forKey: "userid") as! String
             }
             
-            completion(success: success, error: error)
+            completion(success, error)
         }
     }
     
-    public func logout(completion: (success: Bool, error: ErrorType?) -> Void) {
+    open func logout(_ completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
         let headerDict = ["x-tidepool-session-token":"\(x_tidepool_session_token)"]
         
         request("POST", baseUrl: API_URL, urlExtension: "/auth/logout", headerDict: headerDict, body: nil) { (success, data, error) in
-            completion(success: success, error: error)
+            completion(success, error)
         }
     }
     
-    public func uploadData(data: TDSet, completion: (success: Bool, error: ErrorType?) -> Void) {
+    open func uploadData(_ data: TDSet, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
         let headerDict = [
             "x-tidepool-session-token":"\(x_tidepool_session_token)",
             "Content-Type":"application/json"
         ]
         
-        let body = data.toNSDataForUpload(TidepoolApiClient.getUploadId("TidepoolKit", time: Datetime.getISOStringForDate(NSDate())), deviceId: DEVICE_ID)
+        let body = data.toNSDataForUpload(TidepoolApiClient.getUploadId("TidepoolKit", time: Datetime.getISOStringForDate(Date())), deviceId: DEVICE_ID)
         
         request("POST", baseUrl: UPLOAD_URL, urlExtension: "/data/\(self.userid)", headerDict: headerDict, body: body) { (success, data, error) in
-            completion(success: success, error: error)
+            completion(success, error)
         }
     }
     
-    private static func getUploadId(deviceId: String, time: String) -> String {
+    fileprivate static func getUploadId(_ deviceId: String, time: String) -> String {
         let uploadIdSuffix = "\(deviceId)_\(time)"
         let uploadIdSuffixMd5Hash = uploadIdSuffix.md5()
         return "upid_\(uploadIdSuffixMd5Hash)"
     }
     
-    public func fetchData(completion: (success: Bool, data: TDSet?, error: ErrorType?) -> Void) {
+    open func fetchData(_ completion: @escaping (_ success: Bool, _ data: TDSet?, _ error: Error?) -> Void) {
         let headerDict = ["x-tidepool-session-token":"\(x_tidepool_session_token)"]
         
         request("GET", baseUrl: API_URL, urlExtension: "/data/\(self.userid)", headerDict: headerDict, body: nil) { (success, data, error) in
             var parsedData: TDSet?
             if (success) {
                 parsedData = TDSet()
-                let jsonResult: NSArray = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+                let jsonResult: NSArray = try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
                 
                 for item in jsonResult {
-                    switch TDType(rawValue: item.valueForKey("type") as! String)! {
+                    switch TDType(rawValue: (item as AnyObject).value(forKey: "type") as! String)! {
                     case .Basal: break
 //                        basal.add(someData as! TDBasal)
                     case .BloodKetone: break
@@ -122,19 +122,19 @@ public class TidepoolApiClient {
                     case .Bolus: break
 //                        bolus.add(someData as! TDBolus)
                     case .CBG:
-                        parsedData!.add(TDCbg.makeObjectFromJSON(item))
+                        parsedData!.add(TDCbg.makeObjectFromJSON(item as AnyObject))
                     case .CGMSettings: break
 //                        cgmSettings.add(someData as! TDCgmSettings)
                     case .PumpSettings: break
 //                        pumpSettings.add(someData as! TDPumpSettings)
                     case .SMBG:
-                        parsedData!.add(TDSmbg.makeObjectFromJSON(item))
+                        parsedData!.add(TDSmbg.makeObjectFromJSON(item as AnyObject))
                     case .Wizard: break
 //                        wizard.add(someData as! TDWizard)
                     }
                 }
             }
-            completion(success: success, data: parsedData, error: error)
+            completion(success, parsedData, error)
         }
     }
 }

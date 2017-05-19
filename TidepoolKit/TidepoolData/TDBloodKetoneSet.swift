@@ -9,9 +9,9 @@
 import Foundation
 
 /// A set for holding blood ketone values.
-public class TDBloodKetoneSet {
+open class TDBloodKetoneSet {
     
-    private var data = [TDBloodKetone]()
+    fileprivate var data = [TDBloodKetone]()
     
     /// Returns an empty `TDBloodKetoneSet`.
     public init() { }
@@ -22,7 +22,7 @@ public class TDBloodKetoneSet {
      - Parameter someBloodKetone: The `TDBloodKetone` to be added to the set.
      - Returns: the `TDBloodKetoneSet` itself for easy chaining.
      */
-    public func add(someBloodKetone: TDBloodKetone) -> TDBloodKetoneSet {
+    open func add(_ someBloodKetone: TDBloodKetone) -> TDBloodKetoneSet {
         data.append(someBloodKetone)
         return self
     }
@@ -34,7 +34,7 @@ public class TDBloodKetoneSet {
      - Parameter deviceId: The associated `deviceId` to be included in each piece of `TDBloodKetone`.
      - Returns: `[[String : AnyObject]]` for the associated `TDBloodKetoneSet`.
      */
-    internal func toJSONArrayForUpload(uploadId: String, deviceId: String) -> [[String : AnyObject]] {
+    internal func toJSONArrayForUpload(_ uploadId: String, deviceId: String) -> [[String : AnyObject]] {
         return data.map { (d) -> [String : AnyObject] in
             return d.toDictionary(uploadId, deviceId: deviceId)
         }

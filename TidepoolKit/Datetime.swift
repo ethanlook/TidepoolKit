@@ -10,50 +10,50 @@ import Foundation
 
 public struct Datetime {
     
-    private static let MILLI_IN_MIN = 60000
+    fileprivate static let MILLI_IN_MIN = 60000
     
-    public static func getISOStringForDate(date: NSDate) -> String {
-        let dateFormatter = NSDateFormatter()
+    public static func getISOStringForDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        return dateFormatter.stringFromDate(date)
+        return dateFormatter.string(from: date)
     }
     
-    public static func getDeviceTimeForDate(date: NSDate) -> String {
-        let dateFormatter = NSDateFormatter()
+    public static func getDeviceTimeForDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        return dateFormatter.stringFromDate(date)
+        return dateFormatter.string(from: date)
     }
     
     public static func getTimezoneOffset() -> Int {
-        return NSTimeZone.localTimeZone().secondsFromGMT / 60
+        return NSTimeZone.local.secondsFromGMT() / 60
     }
     
-    public static func dateForString(dateStr: String) -> NSDate? {
-        let dateFormatterA = NSDateFormatter()
+    public static func dateForString(_ dateStr: String) -> Date? {
+        let dateFormatterA = DateFormatter()
         dateFormatterA.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         
-        let dateFormatterB = NSDateFormatter()
+        let dateFormatterB = DateFormatter()
         dateFormatterB.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZ"
         
-        return dateFormatterA.dateFromString(dateStr) ?? dateFormatterB.dateFromString(dateStr)
+        return dateFormatterA.date(from: dateStr) ?? dateFormatterB.date(from: dateStr)
     }
     
-    public static func dateFromComponents(components: NSDateComponents) -> NSDate? {
-        let calendar = NSCalendar.currentCalendar()
-        return calendar.dateFromComponents(components)
+    public static func dateFromComponents(_ components: DateComponents) -> Date? {
+        let calendar = Calendar.current
+        return calendar.date(from: components)
     }
     
-    public static func endTime(date: NSDate, minutes duration: Int) -> NSDate {
-        let calendar = NSCalendar.currentCalendar()
-        return calendar.dateByAddingUnit(.Minute, value: 5, toDate: date, options: [])!
+    public static func endTime(_ date: Date, minutes duration: Int) -> Date {
+        let calendar = Calendar.current
+        return (calendar as NSCalendar).date(byAdding: .minute, value: 5, to: date, options: [])!
     }
     
-    public static func minutesBetweenDates(start: NSDate, end: NSDate) -> Int {
-        let calendar = NSCalendar.currentCalendar()
-        return calendar.components(.Minute, fromDate: start, toDate: end, options: []).minute
+    public static func minutesBetweenDates(_ start: Date, end: Date) -> Int {
+        let calendar = Calendar.current
+        return (calendar as NSCalendar).components(.minute, from: start, to: end, options: []).minute!
     }
     
-    public static func millisecondsBetweenDates(start: NSDate, end: NSDate) -> Int {
+    public static func millisecondsBetweenDates(_ start: Date, end: Date) -> Int {
         return minutesBetweenDates(start, end: end) * MILLI_IN_MIN
     }
 }

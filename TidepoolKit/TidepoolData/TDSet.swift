@@ -9,31 +9,31 @@
 import Foundation
 
 /// A set for holding Tidepool data.
-public class TDSet {
+open class TDSet {
     
     /// The grouped basal segments in the set.
-    public var basal = TDBasalSet()
+    open var basal = TDBasalSet()
     
     /// The grouped blood ketone values in the set.
-    public var bloodKetone = TDBloodKetoneSet()
+    open var bloodKetone = TDBloodKetoneSet()
     
     /// The grouped bolus events in the set.
-    public var bolus = TDBolusSet()
+    open var bolus = TDBolusSet()
     
     /// The grouped CBG values in the set.
-    public var cbg = TDCbgSet()
+    open var cbg = TDCbgSet()
     
     /// The grouped CGM settings in the set.
-    public var cgmSettings = TDCgmSettingsSet()
+    open var cgmSettings = TDCgmSettingsSet()
     
     /// The grouped pump settings in the set.
-    public var pumpSettings = TDPumpSettingsSet()
+    open var pumpSettings = TDPumpSettingsSet()
     
     /// The grouped smbg values in the set.
-    public var smbg = TDSmbgSet()
+    open var smbg = TDSmbgSet()
     
     /// The grouped wizard/calculator events in the set.
-    public var wizard = TDWizardSet()
+    open var wizard = TDWizardSet()
     
     /// Returns an empty `TDSet`.
     public init() { }
@@ -44,7 +44,7 @@ public class TDSet {
      - Parameter someData: The `TidepoolData` to be added to the set.
      - Returns: The `TDSet` itself for easy chaining.
      */
-    public func add(someData: TidepoolData) -> TDSet {
+    open func add(_ someData: TidepoolData) -> TDSet {
         switch someData.type {
         case .Basal:
             basal.add(someData as! TDBasal)
@@ -73,7 +73,7 @@ public class TDSet {
      - Parameter deviceId: The associated `deviceId` to be included in each piece of `TidepoolData`.
      - Returns: `NSData` for the associated `TDSet`.
      */
-    internal func toNSDataForUpload(uploadId: String, deviceId: String) -> NSData {
+    internal func toNSDataForUpload(_ uploadId: String, deviceId: String) -> Data {
         var jsonArray: [[String : AnyObject]] = []
         
         jsonArray += basal.toJSONArrayForUpload(uploadId, deviceId: deviceId)
@@ -85,6 +85,6 @@ public class TDSet {
         jsonArray += smbg.toJSONArrayForUpload(uploadId, deviceId: deviceId)
         jsonArray += wizard.toJSONArrayForUpload(uploadId, deviceId: deviceId)
         
-        return try! NSJSONSerialization.dataWithJSONObject(jsonArray, options: NSJSONWritingOptions.PrettyPrinted)
+        return try! JSONSerialization.data(withJSONObject: jsonArray, options: JSONSerialization.WritingOptions.prettyPrinted)
     }
 }

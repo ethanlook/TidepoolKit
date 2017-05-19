@@ -8,30 +8,30 @@
 
 import Foundation
 
-public class TDBloodKetone: TidepoolData {
+open class TDBloodKetone: TidepoolData {
     var value: Double
     var units: TDUnit.BG
     
-    public init(value: Double, time: NSDate?) {
+    public init(value: Double, time: Date?) {
         self.value = value
         self.units = .MMOLL
         
         super.init(type: .BloodKetone, subType: nil, time: time)
     }
     
-    override func toDictionary(uploadId: String, deviceId: String) -> [String : AnyObject] {
+    override func toDictionary(_ uploadId: String, deviceId: String) -> [String : AnyObject] {
         let retval: [String : AnyObject] = [
-            "clockDriftOffset": 0,
-            "conversionOffset": 0,
-            "deviceId": deviceId,
-            "deviceTime": self.deviceTime,
-            "guid": NSUUID().UUIDString,
-            "time": self.time,
-            "timezoneOffset": self.timezoneOffset,
-            "type": self.type.rawValue,
-            "units": self.units.rawValue,
-            "uploadId": uploadId,
-            "value": self.value
+            "clockDriftOffset": 0 as AnyObject,
+            "conversionOffset": 0 as AnyObject,
+            "deviceId": deviceId as AnyObject,
+            "deviceTime": self.deviceTime as AnyObject,
+            "guid": UUID().uuidString as AnyObject,
+            "time": self.time as AnyObject,
+            "timezoneOffset": self.timezoneOffset as AnyObject,
+            "type": self.type.rawValue as AnyObject,
+            "units": self.units.rawValue as AnyObject,
+            "uploadId": uploadId as AnyObject,
+            "value": self.value as AnyObject
         ]
         return retval
     }
