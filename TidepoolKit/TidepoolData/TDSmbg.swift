@@ -87,14 +87,14 @@ open class TDSmbg: TidepoolData {
         let retval: [String : AnyObject] = [
             "clockDriftOffset": self.clockDriftOffset as AnyObject,
             "conversionOffset": self.conversionOffset as AnyObject,
-            "deviceId": self.deviceId as AnyObject ?? deviceId as AnyObject,
+            "deviceId": (self.deviceId ?? deviceId) as AnyObject,
             "deviceTime": self.deviceTime as AnyObject,
             "guid": UUID().uuidString as AnyObject,
             "time": self.time as AnyObject,
             "timezoneOffset": self.timezoneOffset as AnyObject,
             "type": self.type.rawValue as AnyObject,
             "units": self.units.rawValue as AnyObject,
-            "uploadId": self.uploadId as AnyObject ?? uploadId as AnyObject,
+            "uploadId": (self.uploadId ?? uploadId) as AnyObject,
             "value": self.value as AnyObject
         ]
         return retval
